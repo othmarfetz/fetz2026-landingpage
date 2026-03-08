@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Othmar Fetz | Funktionierende Lösungen für komplexe Projekte</title>
+  <meta name="description" content="Ich übersetze zwischen Disziplinen, führe Entscheidungen herbei und sorge dafür, dass am Ende etwas steht, das funktioniert.">
+  <meta name="theme-color" content="#013546">
+
+  <link rel="preload" href="assets/fonts/Decimal-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Gotham-Book.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body>
+
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#hero" class="header__logo" aria-label="FETZ">
+        <svg viewBox="0 0 175.53 26.31" aria-hidden="true">
+          <polygon fill="currentColor" points="52.52 .14 73.83 .14 74.02 4.47 57.31 4.47 57.31 11.54 71.48 11.54 71.48 15.84 57.31 15.84 57.31 26.3 52.52 26.3 52.52 .14"/>
+          <polygon fill="currentColor" points="85.69 .14 107.18 .14 107.33 4.47 90.44 4.47 90.44 10.6 104.19 10.6 104.19 14.9 90.44 14.9 90.44 21.97 107.93 21.97 107.74 26.3 85.69 26.3 85.69 .14"/>
+          <polygon fill="currentColor" points="127.41 4.55 117.43 4.55 117.62 .14 141.99 .14 142.18 4.55 132.2 4.55 132.2 26.3 127.41 26.3 127.41 4.55"/>
+          <polygon fill="currentColor" points="151.98 21.71 169.21 4.47 152.46 4.47 152.61 .14 175.53 .14 175.53 4.28 157.92 21.97 175.53 21.97 175.53 26.3 151.98 26.3 151.98 21.71"/>
+          <path fill="currentColor" d="M14.21,21.07h16.17c2.56,0,4.64,2.35,4.64,5.24H9.57c0-2.89,2.08-5.24,4.64-5.24"/>
+          <path fill="currentColor" d="M4.64,5.38h16.17c2.56,0,4.64-2.35,4.64-5.24H0c0,2.89,2.08,5.24,4.64,5.24"/>
+          <path fill="#ec4c50" d="M29.5,0c0,2.93-1.19,5.61-3.11,7.53s-4.57,3.11-7.5,3.11h-1.38s-2.01,0-2.01,0c-4.28,0-8.15,1.73-10.96,4.53C1.73,17.99,0,22.03,0,26.31h5.52c0-2.93,1.19-5.75,3.11-7.67s4.57-3.11,7.5-3.11h1.38s2.01,0,2.01,0c4.28,0,8.15-1.73,10.96-4.53,2.81-2.81,4.54-6.71,4.54-10.99h-5.52Z"/>
+        </svg>
+      </a>
+
+      <nav class="nav" id="nav">
+        <div class="nav__inner">
+          <a href="#expertise" class="nav__link">Expertise</a>
+          <a href="#produkte" class="nav__link">Projekte</a>
+          <a href="#projekte" class="nav__link">Arbeiten</a>
+          <a href="#kontakt" class="nav__cta">
+              Kontakt
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+        </div>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menü">
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav__bg"></div>
+    <nav class="mobile-nav__content">
+      <a href="#expertise" class="mobile-nav__link">Expertise</a>
+      <a href="#produkte" class="mobile-nav__link">Projekte</a>
+      <a href="#projekte" class="mobile-nav__link">Arbeiten</a>
+      <a href="#kontakt" class="mobile-nav__link mobile-nav__link--cta">Kontakt</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__bg">
+        <img src="assets/images/portrait.jpg" alt="">
+      </div>
+      <div class="hero__content">
+        <p class="hero__name" data-reveal>Othmar Fetz</p>
+        <h1 class="hero__headline" data-reveal data-reveal-delay="1">
+          Lösungen für komplexe Projekte
+        </h1>
+        <p class="hero__subline" data-reveal data-reveal-delay="2">
+          Ich verbinde Strategie, Kommunikation, Gestaltung und Technologie, schaffe Klarheit für Entscheidungen und sorge dafür, dass aus Ideen funktionierende Lösungen entstehen.
+        </p>
+      </div>
+    </section>
+
+    <!-- Brands / Expertise -->
+    <section class="brands" id="expertise">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-label">Expertise</span>
+          <h2 class="section-title">Meine vier Standbeine</h2>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="brand-card" data-reveal data-reveal-delay="1">
+            <div class="brand-card__logo">
+              <img src="assets/images/fetz-logo.svg" alt="Werbeagentur FETZ">
+            </div>
+            <div class="brand-card__content">
+              <h3 class="brand-card__name">Werbeagentur FETZ</h3>
+              <p class="brand-card__text">
+                Full-Service für Kommunikation und digitale Projekte. Markenentwicklung, Webdesign, Print und Projektleitung für KMUs.
+              </p>
+              <a href="https://werbeagentur-fetz.at" class="brand-card__link" target="_blank" rel="noopener">
+                werbeagentur-fetz.at
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="brand-card" data-reveal data-reveal-delay="2">
+            <div class="brand-card__logo">
+              <img src="assets/images/standwert-logo.svg" alt="Standwert">
+            </div>
+            <div class="brand-card__content">
+              <h3 class="brand-card__name">Standwert</h3>
+              <p class="brand-card__text">
+                Workshops und Strategien für Messeauftritte. 15 Jahre Erfahrung, 300+ Projekte, branchenführende Software im DACH-Raum.
+              </p>
+              <a href="https://standwert.info" class="brand-card__link" target="_blank" rel="noopener">
+                standwert.info
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="brand-card" data-reveal data-reveal-delay="3">
+            <div class="brand-card__logo">
+              <img src="assets/images/codingcluster-logo.svg" alt="Coding Cluster">
+            </div>
+            <div class="brand-card__content">
+              <h3 class="brand-card__name">Coding Cluster</h3>
+              <p class="brand-card__text">
+                Technische Umsetzung für Agenturen. Web-Entwicklung, Schnittstellen, APIs und Speziallösungen mit einem eingespielten Team.
+              </p>
+              <a href="https://coding-cluster.io" class="brand-card__link" target="_blank" rel="noopener">
+                coding-cluster.io
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="brand-card" data-reveal data-reveal-delay="4">
+            <div class="brand-card__logo">
+              <img src="assets/images/sozialfotografie-logo.svg" alt="Sozialfotografie">
+            </div>
+            <div class="brand-card__content">
+              <h3 class="brand-card__name">Sozialfotografie</h3>
+              <p class="brand-card__text">
+                Dokumentarische Fotografie für soziale Projekte weltweit. Lions-Projekte in 30 Ländern, Autor von „The LEO Book".
+              </p>
+              <a href="https://foto.fetz.cc" class="brand-card__link" target="_blank" rel="noopener">
+                foto.fetz.cc
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Slider -->
+    <section class="products" id="produkte">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-label">Eigene Projekte</span>
+          <h2 class="section-title">Selbst entwickelt und betrieben</h2>
+        </div>
+
+        <div class="products-slider" id="productsSlider">
+          <div class="products-slider__track" id="productsTrack">
+
+            <!-- Slide 1: TaskLens -->
+            <article class="product-slide">
+              <div class="product-slide__image">
+                <img src="assets/images/tasklens-mockup.jpg" alt="TaskLens App">
+              </div>
+              <div class="product-slide__content">
+                <img src="assets/images/tasklens-logo.svg" alt="TaskLens" class="product-slide__logo">
+                <h3 class="product-slide__title">Aufgabenverwaltung für Haus & Garten</h3>
+                <p class="product-slide__text">
+                  Man sieht etwas, das repariert werden muss – und vergisst es wieder. TaskLens dokumentiert jede Aufgabe mit einem Foto, damit nichts mehr untergeht.
+                </p>
+                <ul class="product-slide__features">
+                  <li>Aufgaben mit Foto erfassen</li>
+                  <li>Nach Bereichen organisieren</li>
+                  <li>Erinnerungen und Deadlines setzen</li>
+                </ul>
+                <a href="https://tasklens.app" class="product-slide__link" target="_blank" rel="noopener">
+                  tasklens.app
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Slide 2: FrameStage -->
+            <article class="product-slide">
+              <div class="product-slide__image">
+                <img src="assets/images/framestage-mockup.jpg" alt="FrameStage">
+              </div>
+              <div class="product-slide__content">
+                <img src="assets/images/framestage-logo.svg" alt="FrameStage" class="product-slide__logo">
+                <h3 class="product-slide__title">Portfolio-Plattform für Fotografen</h3>
+                <p class="product-slide__text">
+                  Bestehende Lösungen sind oft überladen oder voller Werbung. FrameStage gibt Fotografen eine saubere Bühne – mit eigener Domain und voller Kontrolle.
+                </p>
+                <ul class="product-slide__features">
+                  <li>Eigene Domain, eigenes Branding</li>
+                  <li>Keine Werbung, keine Ablenkung</li>
+                  <li>Als WordPress-Plugin oder selbst gehostet</li>
+                </ul>
+                <a href="https://framestage.me" class="product-slide__link" target="_blank" rel="noopener">
+                  framestage.me
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Slide 3: Photo Locations -->
+            <article class="product-slide">
+              <div class="product-slide__image">
+                <img src="assets/images/photolocations-mockup.jpg" alt="Photo Locations">
+              </div>
+              <div class="product-slide__content">
+                <img src="assets/images/photolocations-logo.svg" alt="Photo Locations" class="product-slide__logo">
+                <h3 class="product-slide__title">Foto-Spots entdecken & teilen</h3>
+                <p class="product-slide__text">
+                  Gute Locations zu finden ist aufwändig, lokales Wissen oft verstreut. Photo Locations bündelt dieses Wissen in einer wachsenden Community-Datenbank.
+                </p>
+                <ul class="product-slide__features">
+                  <li>Spots in der Nähe entdecken</li>
+                  <li>Eigene Locations eintragen</li>
+                  <li>Bilder und Tipps teilen</li>
+                </ul>
+                <a href="https://photo-locations.info" class="product-slide__link" target="_blank" rel="noopener">
+                  photo-locations.info
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Navigation -->
+          <div class="products-slider__nav">
+            <div class="products-slider__dots">
+              <button class="products-slider__dot is-active" data-goto="0" aria-label="Slide 1"></button>
+              <button class="products-slider__dot" data-goto="1" aria-label="Slide 2"></button>
+              <button class="products-slider__dot" data-goto="2" aria-label="Slide 3"></button>
+            </div>
+            <button class="products-slider__next" id="sliderNext">
+              Weiter
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects" id="projekte">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-label">Arbeiten</span>
+          <h2 class="section-title">Ausgewählte Projekte</h2>
+        </div>
+
+        <div class="projects-list">
+          <article class="project" data-reveal>
+            <div class="project__image">
+              <img src="assets/images/finanzrechner-projekt.jpg" alt="Finanzrechner.at Redesign">
+            </div>
+            <div class="project__content">
+              <p class="project__client">BAWS Steuerberatung</p>
+              <h3 class="project__title">Redesign Finanzrechner.at</h3>
+              <p class="project__text">Die meistgenutzten Brutto-Netto-Rechner Österreichs brauchten ein Update: veraltetes Design, schlechte Mobile-Nutzung, unklare Benutzerführung.</p>
+              <ul class="project__features">
+                <li>Komplett neues Interface und UX-Konzept</li>
+                <li>Mobile-first Entwicklung</li>
+                <li>Über 2 Millionen Berechnungen pro Jahr</li>
+              </ul>
+              <a href="https://finanzrechner.at" class="project__link" target="_blank" rel="noopener">
+                finanzrechner.at
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lions -->
+    <section class="lions" id="lions">
+      <div class="container">
+        <div class="lions__grid">
+          <div class="lions__image" data-reveal>
+            <div class="lions__image-placeholder" style="background: linear-gradient(135deg, #1a3a5a 0%, #2a5a7a 100%);">Lions</div>
+          </div>
+          <div class="lions__content">
+            <h2 class="lions__title" data-reveal>Lions International</h2>
+            <p class="lions__text" data-reveal data-reveal-delay="1">
+              Seit 2009 engagiert. 1. Vize-Distrikt-Governor, LCIP-Trainer, Speaker auf internationalen Bühnen. Autor von „The LEO Book" – 400 Seiten, 30 Länder.
+            </p>
+            <a href="https://lions.at" class="lions__link" target="_blank" rel="noopener" data-reveal data-reveal-delay="2">
+              lions.at
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="kontakt">
+      <div class="container">
+        <div class="contact__grid">
+          <div class="contact__content" data-reveal>
+            <h2 class="contact__title">Mehr Fragen als Antworten?</h2>
+            <p class="contact__text">
+              Projekte scheitern selten an fehlenden Ideen. Sondern daran, dass niemand sie zu Ende bringt. Wenn Sie jemanden suchen, der Klarheit schafft und Dinge umsetzt, melden Sie sich.
+            </p>
+          </div>
+          <div class="contact__info" data-reveal data-reveal-delay="1">
+            <div class="contact__method">
+              <span class="contact__label">E-Mail</span>
+              <a href="mailto:othmar@fetz.cc" class="contact__value contact__value--email">othmar@fetz.cc</a>
+            </div>
+            <div class="contact__method">
+              <span class="contact__label">Telefon</span>
+              <a href="tel:+43724323470" class="contact__value">+43 7243 23470</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <a href="#hero" class="footer__logo" aria-label="FETZ">
+            <svg viewBox="0 0 175.53 26.31" aria-hidden="true">
+              <polygon fill="currentColor" points="52.52 .14 73.83 .14 74.02 4.47 57.31 4.47 57.31 11.54 71.48 11.54 71.48 15.84 57.31 15.84 57.31 26.3 52.52 26.3 52.52 .14"/>
+              <polygon fill="currentColor" points="85.69 .14 107.18 .14 107.33 4.47 90.44 4.47 90.44 10.6 104.19 10.6 104.19 14.9 90.44 14.9 90.44 21.97 107.93 21.97 107.74 26.3 85.69 26.3 85.69 .14"/>
+              <polygon fill="currentColor" points="127.41 4.55 117.43 4.55 117.62 .14 141.99 .14 142.18 4.55 132.2 4.55 132.2 26.3 127.41 26.3 127.41 4.55"/>
+              <polygon fill="currentColor" points="151.98 21.71 169.21 4.47 152.46 4.47 152.61 .14 175.53 .14 175.53 4.28 157.92 21.97 175.53 21.97 175.53 26.3 151.98 26.3 151.98 21.71"/>
+              <path fill="currentColor" d="M14.21,21.07h16.17c2.56,0,4.64,2.35,4.64,5.24H9.57c0-2.89,2.08-5.24,4.64-5.24"/>
+              <path fill="currentColor" d="M4.64,5.38h16.17c2.56,0,4.64-2.35,4.64-5.24H0c0,2.89,2.08,5.24,4.64,5.24"/>
+              <path fill="#ec4c50" d="M29.5,0c0,2.93-1.19,5.61-3.11,7.53s-4.57,3.11-7.5,3.11h-1.38s-2.01,0-2.01,0c-4.28,0-8.15,1.73-10.96,4.53C1.73,17.99,0,22.03,0,26.31h5.52c0-2.93,1.19-5.75,3.11-7.67s4.57-3.11,7.5-3.11h1.38s2.01,0,2.01,0c4.28,0,8.15-1.73,10.96-4.53,2.81-2.81,4.54-6.71,4.54-10.99h-5.52Z"/>
+            </svg>
+          </a>
+          <div class="footer__info">
+            <p class="footer__line">Werbeagentur FETZ • Kirchenstraße 16, 4615 Holzhausen • <a href="mailto:office@fetz.cc">office@fetz.cc</a> • ATU61165223</p>
+            <p class="footer__line">N26 • DE74 1001 1001 2036 6267 78 • NTSBDEB1XXX</p>
+          </div>
+        </div>
+        <nav class="footer__links">
+          <a href="/impressum" class="footer__link">Impressum</a>
+          <a href="/datenschutz" class="footer__link">Datenschutz</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>
