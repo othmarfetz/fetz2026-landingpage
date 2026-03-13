@@ -29,4 +29,4 @@ jobs:
             --exclude '.claude' \
             --exclude 'CLAUDE.md' \
             --exclude '*-test.html' \
-            ./ "$SSH_USER@$SSH_HOST:/www/fetz_cc/landing/"
+            ./ "$SSH_USER@$SSH_HOST:~/www/fetz_cc/landing/"
