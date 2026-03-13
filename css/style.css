@@ -451,6 +451,12 @@ section {
   filter: grayscale(100%) contrast(0.9) brightness(1.25);
 }
 
+@media (max-width: 768px) {
+  .hero__bg img {
+    object-position: 25% top;
+  }
+}
+
 .hero__content {
   position: relative;
   z-index: 2;
@@ -749,9 +755,19 @@ section {
 }
 
 @media (max-width: 767px) {
+  .about__grid {
+    gap: var(--space-5);
+  }
+
+  .about__content {
+    order: 1;
+  }
+
   .about__image {
-    max-width: 400px;
-    margin: 0 auto;
+    order: 2;
+    max-width: 100%;
+    margin: 0;
+    aspect-ratio: 4/3;
   }
 }
 
