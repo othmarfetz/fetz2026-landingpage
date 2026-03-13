@@ -68,6 +68,8 @@
       menuToggle.setAttribute('aria-expanded', 'true');
       menuToggle.setAttribute('aria-label', 'Menü schließen');
       document.body.style.overflow = 'hidden';
+      // Add class to header for logo color change
+      if (header) header.classList.add('menu-open');
     }
 
     function closeMobileNav() {
@@ -77,6 +79,8 @@
       menuToggle.setAttribute('aria-expanded', 'false');
       menuToggle.setAttribute('aria-label', 'Menü öffnen');
       document.body.style.overflow = '';
+      // Remove class from header
+      if (header) header.classList.remove('menu-open');
     }
 
     // Close on link click
@@ -125,10 +129,10 @@
   // ========================================================================
   // Reveal Animations with Intersection Observer
   // ========================================================================
-  if (!prefersReducedMotion) {
-    const revealElements = document.querySelectorAll('[data-reveal]');
+  let revealObserver = null;
 
-    const revealObserver = new IntersectionObserver((entries) => {
+  if (!prefersReducedMotion) {
+    revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
@@ -141,6 +145,7 @@
       threshold: 0.1
     });
 
+    const revealElements = document.querySelectorAll('[data-reveal]');
     revealElements.forEach(el => {
       revealObserver.observe(el);
     });
@@ -234,7 +239,7 @@
   // Magnetic Button Effect (Desktop only)
   // ========================================================================
   if (!isTouchDevice && !prefersReducedMotion) {
-    const magneticButtons = document.querySelectorAll('.btn--primary, .nav__cta');
+    const magneticButtons = document.querySelectorAll('.btn--primary');
 
     magneticButtons.forEach(btn => {
       btn.addEventListener('mousemove', (e) => {
@@ -594,6 +599,132 @@
         if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
       }
     });
+  }
+
+
+  // ========================================================================
+  // Expertise Image Scrubbing (Hover-based Image Carousel)
+  // ========================================================================
+  if (!prefersReducedMotion && !isTouchDevice) {
+    const imageScrubContainers = document.querySelectorAll('[data-image-scrub]');
+
+    imageScrubContainers.forEach(container => {
+      // Support both expertise and about image slides
+      const slides = container.querySelectorAll('.expertise__image-slide, .about__image-slide');
+      const totalSlides = slides.length;
+      let currentIndex = 0;
+
+      container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percentage = x / rect.width;
+
+        // Calculate which image to show based on mouse position
+        const newIndex = Math.min(Math.floor(percentage * totalSlides), totalSlides - 1);
+
+        if (newIndex !== currentIndex) {
+          // Remove active class from current
+          slides[currentIndex].classList.remove('is-active');
+
+          // Add active class to new
+          slides[newIndex].classList.add('is-active');
+
+          currentIndex = newIndex;
+        }
+      });
+
+      // Reset to first image when mouse leaves
+      container.addEventListener('mouseleave', () => {
+        slides[currentIndex].classList.remove('is-active');
+        slides[0].classList.add('is-active');
+        currentIndex = 0;
+      });
+    });
+  }
+
+  // ========================================================================
+  // Blog Posts from WordPress REST API
+  // ========================================================================
+  const blogGrid = document.getElementById('blogGrid');
+
+  if (blogGrid) {
+    const BLOG_API = 'https://blog.fetz.cc/wp-json/wp/v2/posts?per_page=3&_embed';
+
+    async function loadBlogPosts() {
+      try {
+        const response = await fetch(BLOG_API);
+
+        if (!response.ok) {
+          throw new Error('Blog API nicht erreichbar');
+        }
+
+        const posts = await response.json();
+
+        if (posts.length === 0) {
+          blogGrid.innerHTML = '<p class="blog__empty">Keine Beiträge gefunden.</p>';
+          return;
+        }
+
+        blogGrid.innerHTML = posts.map((post, index) => {
+          // Featured Image
+          const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url
+            || 'assets/images/blog-placeholder.jpg';
+
+          // Category
+          const category = post._embedded?.['wp:term']?.[0]?.[0]?.name || 'Blog';
+
+          // Excerpt (HTML entfernen und kürzen)
+          const excerpt = post.excerpt?.rendered
+            ? post.excerpt.rendered.replace(/<[^>]+>/g, '').substring(0, 150) + '...'
+            : '';
+
+          // Title
+          const title = post.title?.rendered || 'Ohne Titel';
+
+          return `
+            <article class="blog__post" data-reveal data-reveal-delay="${index}">
+              <a href="${post.link}" class="blog__post-image" target="_blank" rel="noopener">
+                <img src="${featuredImage}" alt="${title}" loading="lazy">
+              </a>
+              <div class="blog__post-content">
+                <span class="blog__post-category">${category}</span>
+                <h3 class="blog__post-title">${title}</h3>
+                <p class="blog__post-excerpt">${excerpt}</p>
+                <a href="${post.link}" class="blog__post-link" target="_blank" rel="noopener">
+                  Weiterlesen
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        // Reveal-Animationen für dynamisch geladene Elemente aktivieren
+        const newPosts = blogGrid.querySelectorAll('[data-reveal]');
+        if (revealObserver) {
+          newPosts.forEach(el => {
+            revealObserver.observe(el);
+          });
+        } else {
+          newPosts.forEach(el => {
+            el.classList.add('is-visible');
+          });
+        }
+
+      } catch (error) {
+        console.error('Blog laden fehlgeschlagen:', error);
+        blogGrid.innerHTML = `
+          <p class="blog__error">
+            Blog konnte nicht geladen werden.
+            <a href="https://blog.fetz.cc" target="_blank" rel="noopener">Direkt zum Blog</a>
+          </p>
+        `;
+      }
+    }
+
+    loadBlogPosts();
   }
 
   // ========================================================================

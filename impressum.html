@@ -4,16 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Impressum | Othmar Fetz</title>
-  <meta name="robots" content="noindex">
+  <meta name="description" content="Impressum der Werbeagentur FETZ - Othmar Fetz, Kirchenstraße 16, 4615 Holzhausen">
+  <meta name="theme-color" content="#013546">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="preload" href="assets/fonts/Decimal-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Gotham-Book.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/legal.css">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
 <body>
 
   <!-- Header -->
-  <header class="header header--light" id="header">
+  <header class="header header--legal">
     <div class="header__inner">
-      <a href="/" class="header__logo" aria-label="FETZ">
+      <a href="./" class="header__logo" aria-label="FETZ">
         <svg viewBox="0 0 175.53 26.31" aria-hidden="true">
           <polygon fill="currentColor" points="52.52 .14 73.83 .14 74.02 4.47 57.31 4.47 57.31 11.54 71.48 11.54 71.48 15.84 57.31 15.84 57.31 26.3 52.52 26.3 52.52 .14"/>
           <polygon fill="currentColor" points="85.69 .14 107.18 .14 107.33 4.47 90.44 4.47 90.44 10.6 104.19 10.6 104.19 14.9 90.44 14.9 90.44 21.97 107.93 21.97 107.74 26.3 85.69 26.3 85.69 .14"/>
@@ -24,99 +30,107 @@
           <path fill="#ec4c50" d="M29.5,0c0,2.93-1.19,5.61-3.11,7.53s-4.57,3.11-7.5,3.11h-1.38s-2.01,0-2.01,0c-4.28,0-8.15,1.73-10.96,4.53C1.73,17.99,0,22.03,0,26.31h5.52c0-2.93,1.19-5.75,3.11-7.67s4.57-3.11,7.5-3.11h1.38s2.01,0,2.01,0c4.28,0,8.15-1.73,10.96-4.53,2.81-2.81,4.54-6.71,4.54-10.99h-5.52Z"/>
         </svg>
       </a>
-      <a href="/" class="nav__link">Zurück zur Startseite</a>
+      <a href="./" class="header__back">Zurück</a>
     </div>
   </header>
 
-  <main>
-    <article class="legal-page">
-      <div class="container">
-        <h1>Impressum</h1>
+  <main class="legal">
+    <div class="container">
+      <h1>Impressum</h1>
 
-        <p class="legal-intro">Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch, §63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz.</p>
-
-        <address class="legal-address">
+      <section class="legal__section">
+        <h2>Angaben gemäß ECG</h2>
+        <p>
           <strong>Werbeagentur FETZ</strong><br>
           Othmar Fetz<br>
           Kirchenstraße 16<br>
           4615 Holzhausen<br>
           Österreich
-        </address>
+        </p>
+        <p>
+          <strong>UID-Nummer:</strong> ATU61165223<br>
+          <strong>Telefon:</strong> <a href="tel:+43720817039">+43 720 817039</a><br>
+          <strong>E-Mail:</strong> <a href="mailto:office@fetz.cc">office@fetz.cc</a>
+        </p>
+      </section>
 
-        <dl class="legal-details">
-          <div>
-            <dt>Unternehmensgegenstand</dt>
-            <dd>Werbeagentur</dd>
-          </div>
-          <div>
-            <dt>UID-Nummer</dt>
-            <dd>ATU61165223</dd>
-          </div>
-          <div>
-            <dt>Telefon</dt>
-            <dd><a href="tel:+43720817039">+43 720 817039</a></dd>
-          </div>
-          <div>
-            <dt>E-Mail</dt>
-            <dd><a href="mailto:office@fetz.cc">office@fetz.cc</a></dd>
-          </div>
-          <div>
-            <dt>Mitglied bei</dt>
-            <dd>WKO Oberösterreich</dd>
-          </div>
-          <div>
-            <dt>Berufsrecht</dt>
-            <dd>Gewerbeordnung: <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">www.ris.bka.gv.at</a></dd>
-          </div>
-          <div>
-            <dt>Aufsichtsbehörde</dt>
-            <dd>Bezirkshauptmannschaft Wels-Land</dd>
-          </div>
-          <div>
-            <dt>Verleihungsstaat</dt>
-            <dd>Österreich</dd>
-          </div>
-        </dl>
+      <section class="legal__section">
+        <h2>Geschäftsinformationen</h2>
+        <p>
+          <strong>Unternehmensgegenstand:</strong> Werbeagentur<br>
+          <strong>Mitglied bei:</strong> WKO Oberösterreich<br>
+          <strong>Gewerbebehörde:</strong> Bezirkshauptmannschaft Wels-Land<br>
+          <strong>Berufsrecht:</strong> Gewerbeordnung (<a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">www.ris.bka.gv.at</a>)
+        </p>
+      </section>
 
+      <section class="legal__section">
+        <h2>Bankverbindung</h2>
+        <p>
+          <strong>Bank:</strong> N26<br>
+          <strong>IBAN:</strong> DE74 1001 1001 2036 6267 78<br>
+          <strong>BIC:</strong> NTSBDEB1XXX
+        </p>
+      </section>
+
+      <section class="legal__section">
+        <h2>Haftung für Inhalte</h2>
+        <p>
+          Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden. Als Diensteanbieter sind wir gemäß § 7 Abs.1 ECG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+        </p>
+      </section>
+
+      <section class="legal__section">
+        <h2>Haftung für Links</h2>
+        <p>
+          Diese Website enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+        </p>
+      </section>
+
+      <section class="legal__section">
+        <h2>Urheberrecht</h2>
+        <p>
+          Alle Inhalte dieser Webseite (Texte, Bilder, Grafiken, Design) unterliegen dem Urheberrecht und sind rechtlich geschützt. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+        </p>
+      </section>
+
+      <section class="legal__section">
         <h2>EU-Streitschlichtung</h2>
-        <p>Gemäß Verordnung über Online-Streitbeilegung in Verbraucherangelegenheiten (ODR-Verordnung) möchten wir Sie über die Online-Streitbeilegungsplattform (OS-Plattform) informieren. Verbraucher haben die Möglichkeit, Beschwerden an die Online Streitbeilegungsplattform der Europäischen Kommission unter <a href="http://ec.europa.eu/odr" target="_blank" rel="noopener">ec.europa.eu/odr</a> zu richten. Die dafür notwendigen Kontaktdaten finden Sie oberhalb in unserem Impressum.</p>
-        <p>Wir möchten Sie jedoch darauf hinweisen, dass wir nicht bereit oder verpflichtet sind, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <p>
+          Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>
+        </p>
+        <p>
+          Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+      </section>
 
-        <h2>Haftung für Inhalte dieser Webseite</h2>
-        <p>Wir entwickeln die Inhalte dieser Webseite ständig weiter und bemühen uns korrekte und aktuelle Informationen bereitzustellen. Leider können wir keine Haftung für die Korrektheit aller Inhalte auf dieser Webseite übernehmen, speziell für jene die seitens Dritter bereitgestellt wurden.</p>
-        <p>Sollten Ihnen problematische oder rechtswidrige Inhalte auffallen, bitte wir Sie uns umgehend zu kontaktieren, Sie finden die Kontaktdaten im Impressum.</p>
-
-        <h2>Haftung für Links auf dieser Webseite</h2>
-        <p>Unsere Webseite enthält Links zu anderen Webseiten für deren Inhalt wir nicht verantwortlich sind. Haftung für verlinkte Websites besteht laut § 17 ECG für uns nicht, da wir keine Kenntnis rechtswidriger Tätigkeiten hatten und haben, uns solche Rechtswidrigkeiten auch bisher nicht aufgefallen sind und wir Links sofort entfernen würden, wenn uns Rechtswidrigkeiten bekannt werden.</p>
-        <p>Wenn Ihnen rechtswidrige Links auf unserer Website auffallen, bitte wir Sie uns zu kontaktieren, Sie finden die Kontaktdaten im Impressum.</p>
-
-        <p class="legal-source">Quelle: Erstellt mit dem Impressum Generator von firmenwebseiten.at</p>
-      </div>
-    </article>
+    </div>
   </main>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <a href="/" class="footer__logo" aria-label="FETZ">
-          <svg viewBox="0 0 175.53 26.31" aria-hidden="true">
-            <polygon fill="currentColor" points="52.52 .14 73.83 .14 74.02 4.47 57.31 4.47 57.31 11.54 71.48 11.54 71.48 15.84 57.31 15.84 57.31 26.3 52.52 26.3 52.52 .14"/>
-            <polygon fill="currentColor" points="85.69 .14 107.18 .14 107.33 4.47 90.44 4.47 90.44 10.6 104.19 10.6 104.19 14.9 90.44 14.9 90.44 21.97 107.93 21.97 107.74 26.3 85.69 26.3 85.69 .14"/>
-            <polygon fill="currentColor" points="127.41 4.55 117.43 4.55 117.62 .14 141.99 .14 142.18 4.55 132.2 4.55 132.2 26.3 127.41 26.3 127.41 4.55"/>
-            <polygon fill="currentColor" points="151.98 21.71 169.21 4.47 152.46 4.47 152.61 .14 175.53 .14 175.53 4.28 157.92 21.97 175.53 21.97 175.53 26.3 151.98 26.3 151.98 21.71"/>
-            <path fill="currentColor" d="M14.21,21.07h16.17c2.56,0,4.64,2.35,4.64,5.24H9.57c0-2.89,2.08-5.24,4.64-5.24"/>
-            <path fill="currentColor" d="M4.64,5.38h16.17c2.56,0,4.64-2.35,4.64-5.24H0c0,2.89,2.08,5.24,4.64,5.24"/>
-            <path fill="#ec4c50" d="M29.5,0c0,2.93-1.19,5.61-3.11,7.53s-4.57,3.11-7.5,3.11h-1.38s-2.01,0-2.01,0c-4.28,0-8.15,1.73-10.96,4.53C1.73,17.99,0,22.03,0,26.31h5.52c0-2.93,1.19-5.75,3.11-7.67s4.57-3.11,7.5-3.11h1.38s2.01,0,2.01,0c4.28,0,8.15-1.73,10.96-4.53,2.81-2.81,4.54-6.71,4.54-10.99h-5.52Z"/>
-          </svg>
-        </a>
-        <div class="footer__info">
-          <p class="footer__line">Werbeagentur FETZ • Kirchenstraße 16, 4615 Holzhausen • <a href="mailto:office@fetz.cc">office@fetz.cc</a> • ATU61165223</p>
-          <p class="footer__line">N26 • DE74 1001 1001 2036 6267 78 • NTSBDEB1XXX</p>
+        <div class="footer__left">
+          <a href="./" class="footer__logo" aria-label="FETZ">
+            <svg viewBox="0 0 175.53 26.31" aria-hidden="true">
+              <polygon fill="currentColor" points="52.52 .14 73.83 .14 74.02 4.47 57.31 4.47 57.31 11.54 71.48 11.54 71.48 15.84 57.31 15.84 57.31 26.3 52.52 26.3 52.52 .14"/>
+              <polygon fill="currentColor" points="85.69 .14 107.18 .14 107.33 4.47 90.44 4.47 90.44 10.6 104.19 10.6 104.19 14.9 90.44 14.9 90.44 21.97 107.93 21.97 107.74 26.3 85.69 26.3 85.69 .14"/>
+              <polygon fill="currentColor" points="127.41 4.55 117.43 4.55 117.62 .14 141.99 .14 142.18 4.55 132.2 4.55 132.2 26.3 127.41 26.3 127.41 4.55"/>
+              <polygon fill="currentColor" points="151.98 21.71 169.21 4.47 152.46 4.47 152.61 .14 175.53 .14 175.53 4.28 157.92 21.97 175.53 21.97 175.53 26.3 151.98 26.3 151.98 21.71"/>
+              <path fill="currentColor" d="M14.21,21.07h16.17c2.56,0,4.64,2.35,4.64,5.24H9.57c0-2.89,2.08-5.24,4.64-5.24"/>
+              <path fill="currentColor" d="M4.64,5.38h16.17c2.56,0,4.64-2.35,4.64-5.24H0c0,2.89,2.08,5.24,4.64,5.24"/>
+              <path fill="#ec4c50" d="M29.5,0c0,2.93-1.19,5.61-3.11,7.53s-4.57,3.11-7.5,3.11h-1.38s-2.01,0-2.01,0c-4.28,0-8.15,1.73-10.96,4.53C1.73,17.99,0,22.03,0,26.31h5.52c0-2.93,1.19-5.75,3.11-7.67s4.57-3.11,7.5-3.11h1.38s2.01,0,2.01,0c4.28,0,8.15-1.73,10.96-4.53,2.81-2.81,4.54-6.71,4.54-10.99h-5.52Z"/>
+            </svg>
+          </a>
+          <div class="footer__info">
+            <p class="footer__line">Werbeagentur FETZ · Kirchenstraße 16, 4615 Holzhausen · <a href="mailto:office@fetz.cc">office@fetz.cc</a> · ATU61165223</p>
+          </div>
         </div>
         <nav class="footer__links">
-          <a href="/impressum" class="footer__link">Impressum</a>
-          <a href="/datenschutz" class="footer__link">Datenschutz</a>
+          <a href="impressum.html" class="footer__link">Impressum</a>
+          <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+          <a href="agb.html" class="footer__link">AGB</a>
         </nav>
       </div>
     </div>

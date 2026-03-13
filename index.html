@@ -10,7 +10,28 @@
   <link rel="preload" href="assets/fonts/Decimal-Light.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/Gotham-Book.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Google Consent Mode (defaults) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 500
+    });
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-837SD28H3S"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-837SD28H3S');
+  </script>
 </head>
 <body>
 
@@ -68,99 +89,178 @@
     <!-- Hero -->
     <section class="hero" id="hero">
       <div class="hero__bg">
-        <img src="assets/images/portrait.jpg" alt="">
+        <picture>
+          <source media="(max-width: 768px)" srcset="assets/images/hero/hero-portrait-mobile.jpg">
+          <img src="assets/images/hero/hero-portrait.jpg" alt="Othmar Fetz Portrait">
+        </picture>
       </div>
       <div class="hero__content">
         <p class="hero__name" data-reveal>Othmar Fetz</p>
         <h1 class="hero__headline" data-reveal data-reveal-delay="1">
-          Lösungen für komplexe Projekte
+          Lösungen für<br>komplexe Projekte
         </h1>
         <p class="hero__subline" data-reveal data-reveal-delay="2">
-          Ich verbinde Strategie, Kommunikation, Gestaltung und Technologie, schaffe Klarheit für Entscheidungen und sorge dafür, dass aus Ideen funktionierende Lösungen entstehen.
+          Ich gestalte, entwickle und übernehme Verantwortung. Herausforderungen mache ich greifbar – gemeinsam mit Kunden oder in eigenen Produkten.
         </p>
       </div>
     </section>
 
     <!-- Brands / Expertise -->
-    <section class="brands" id="expertise">
-      <div class="container">
-        <div class="section-header" data-reveal>
+    <section class="expertise" id="expertise">
+      <div class="expertise__header">
+        <div class="container">
           <span class="section-label">Expertise</span>
           <h2 class="section-title">Meine vier Standbeine</h2>
         </div>
+      </div>
 
-        <div class="grid grid-2">
-          <article class="brand-card" data-reveal data-reveal-delay="1">
-            <div class="brand-card__logo">
-              <img src="assets/images/fetz-logo.svg" alt="Werbeagentur FETZ">
-            </div>
-            <div class="brand-card__content">
-              <h3 class="brand-card__name">Werbeagentur FETZ</h3>
-              <p class="brand-card__text">
-                Full-Service für Kommunikation und digitale Projekte. Markenentwicklung, Webdesign, Print und Projektleitung für KMUs.
-              </p>
-              <a href="https://werbeagentur-fetz.at" class="brand-card__link" target="_blank" rel="noopener">
-                werbeagentur-fetz.at
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
-                </svg>
-              </a>
-            </div>
-          </article>
+      <!-- Item 1: Standwert -->
+      <article class="expertise__item" data-reveal>
+        <div class="expertise__image" data-image-scrub>
+          <div class="expertise__image-slide is-active" style="background: url('assets/images/standwert/FH-1_1765972038073-DWRnwtEQ.webp') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/standwert/FH-4_1765972038075-CE2oUsgI.webp') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/standwert/FH-6_1765972038075-CKr9CRNp.webp') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/standwert/Scheuch-1_1764085901132-Bt5VCHMl.webp') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/standwert/Scheuch-4_1764085901133-BrhYggKn.webp') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/standwert/FH-1_1765972038073-DWRnwtEQ.webp') center/cover;"></div>
+        </div>
+        <div class="expertise__content">
+          <img src="assets/images/standwert-logo.svg" alt="Standwert" class="expertise__logo">
+          <h3 class="expertise__title">Messeauftritte mit System</h3>
+          <p class="expertise__text">
+            Workshops und Strategien für Messeauftritte. 15 Jahre Erfahrung, 300+ Projekte, branchenführende Software im DACH-Raum.
+          </p>
+          <ul class="expertise__benefits">
+            <li>Strategische Workshops für optimale Messepräsenz</li>
+            <li>Software-Tools für effiziente Messeplanung</li>
+            <li>Messbar bessere Messeergebnisse</li>
+          </ul>
+          <a href="https://standwert.info" class="expertise__link" target="_blank" rel="noopener">
+            standwert.info
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+            </svg>
+          </a>
+        </div>
+      </article>
 
-          <article class="brand-card" data-reveal data-reveal-delay="2">
-            <div class="brand-card__logo">
-              <img src="assets/images/standwert-logo.svg" alt="Standwert">
-            </div>
-            <div class="brand-card__content">
-              <h3 class="brand-card__name">Standwert</h3>
-              <p class="brand-card__text">
-                Workshops und Strategien für Messeauftritte. 15 Jahre Erfahrung, 300+ Projekte, branchenführende Software im DACH-Raum.
-              </p>
-              <a href="https://standwert.info" class="brand-card__link" target="_blank" rel="noopener">
-                standwert.info
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
-                </svg>
-              </a>
-            </div>
-          </article>
+      <!-- Item 2: Werbeagentur FETZ -->
+      <article class="expertise__item" data-reveal>
+        <div class="expertise__image" data-image-scrub>
+          <div class="expertise__image-slide is-active" style="background: url('assets/images/fetz/forum-sunnystar-website.jpg') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/fetz/psi-smartcity-uebersicht.jpg') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/fetz/competence4you-website.jpg') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/fetz/sportradl-magazin.jpg') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/fetz/finanzrechner-mobile.jpg') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/fetz/psi-smartcity-messewand.jpg') center/cover;"></div>
+        </div>
+        <div class="expertise__content">
+          <img src="assets/images/fetz-logo.svg" alt="Werbeagentur FETZ" class="expertise__logo">
+          <h3 class="expertise__title">Kommunikation mit Konzept</h3>
+          <p class="expertise__text">
+            Full-Service für Kommunikation und digitale Projekte. Markenentwicklung, Webdesign, Print und Projektleitung für KMUs.
+          </p>
+          <ul class="expertise__benefits">
+            <li>Ganzheitliche Markenentwicklung mit Strategie</li>
+            <li>Webdesign und digitale Lösungen aus einer Hand</li>
+            <li>Projektleitung für komplexe Kommunikationsprojekte</li>
+          </ul>
+          <a href="https://werbeagentur-fetz.at" class="expertise__link" target="_blank" rel="noopener">
+            werbeagentur-fetz.at
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+            </svg>
+          </a>
+        </div>
+      </article>
 
-          <article class="brand-card" data-reveal data-reveal-delay="3">
-            <div class="brand-card__logo">
-              <img src="assets/images/codingcluster-logo.svg" alt="Coding Cluster">
-            </div>
-            <div class="brand-card__content">
-              <h3 class="brand-card__name">Coding Cluster</h3>
-              <p class="brand-card__text">
-                Technische Umsetzung für Agenturen. Web-Entwicklung, Schnittstellen, APIs und Speziallösungen mit einem eingespielten Team.
-              </p>
-              <a href="https://coding-cluster.io" class="brand-card__link" target="_blank" rel="noopener">
-                coding-cluster.io
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
-                </svg>
-              </a>
-            </div>
-          </article>
+      <!-- Item 3: Coding Cluster -->
+      <article class="expertise__item" data-reveal>
+        <div class="expertise__image" data-image-scrub>
+          <div class="expertise__image-slide is-active" style="background: url('assets/images/coding-cluster/project_dryman-BL9Roenr.png') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/coding-cluster/project_lions-BPgWmqUG.png') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/coding-cluster/project_sparfuchs-Bjq5Mg6G.png') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/coding-cluster/project_sunnystar-BpU_RVo1.png') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/coding-cluster/project_zucker-CfZ_YGOR.png') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/coding-cluster/project_dryman-BL9Roenr.png') center/cover;"></div>
+        </div>
+        <div class="expertise__content">
+          <img src="assets/images/codingcluster-logo.svg" alt="Coding Cluster" class="expertise__logo">
+          <h3 class="expertise__title">Technologie auf Augenhöhe</h3>
+          <p class="expertise__text">
+            Technische Umsetzung für Agenturen. Web-Entwicklung, Schnittstellen, APIs und Speziallösungen mit einem eingespielten Team.
+          </p>
+          <ul class="expertise__benefits">
+            <li>Komplexe Web-Entwicklung mit modernen Technologien</li>
+            <li>API-Integration und Schnittstellenprogrammierung</li>
+            <li>Verlässlicher Partner für technische Speziallösungen</li>
+          </ul>
+          <a href="https://coding-cluster.io" class="expertise__link" target="_blank" rel="noopener">
+            coding-cluster.io
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+            </svg>
+          </a>
+        </div>
+      </article>
 
-          <article class="brand-card" data-reveal data-reveal-delay="4">
-            <div class="brand-card__logo">
-              <img src="assets/images/sozialfotografie-logo.svg" alt="Sozialfotografie">
-            </div>
-            <div class="brand-card__content">
-              <h3 class="brand-card__name">Sozialfotografie</h3>
-              <p class="brand-card__text">
-                Dokumentarische Fotografie für soziale Projekte weltweit. Lions-Projekte in 30 Ländern, Autor von „The LEO Book".
+      <!-- Item 4: Sozialfotografie -->
+      <article class="expertise__item" data-reveal>
+        <div class="expertise__image" data-image-scrub>
+          <div class="expertise__image-slide is-active" style="background: url('assets/images/sozialfotografie/The-LEO-Book-Othmar-Fetz-DSC_6980-scaled.jpg') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/sozialfotografie/The-LEO-Book-Othmar-Fetz-DSC_0686-scaled.jpg') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/sozialfotografie/The-LEO-Book-Othmar-Fetz-DSC_1633-scaled.jpg') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/sozialfotografie/The-LEO-Book-Othmar-Fetz-DSC_4271-scaled.jpg') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/sozialfotografie/The-LEO-Book-Othmar-Fetz-DSC_4783-scaled.jpg') center/cover;"></div>
+          <div class="expertise__image-slide" style="background: url('assets/images/sozialfotografie/The-LEO-Book-Othmar-Fetz-DSC_9483-scaled.jpg') center/cover;"></div>
+        </div>
+        <div class="expertise__content">
+          <img src="assets/images/sozialfotografie-logo.svg" alt="Sozialfotografie" class="expertise__logo">
+          <h3 class="expertise__title">Dokumentarische Fotografie</h3>
+          <p class="expertise__text">
+            Ich begleite Menschen, Vereine und Organisationen im sozialen Bereich. Keine inszenierten Bilder – sondern reale Situationen, klare Beobachtungen und Geschichten aus dem Moment.
+          </p>
+          <ul class="expertise__benefits">
+            <li>Reportagen, Portraits und Langzeitprojekte</li>
+            <li>Internationale Begleitung über längere Zeiträume</li>
+            <li>Authentizität vor perfekter Oberfläche</li>
+          </ul>
+          <a href="https://foto.fetz.cc" class="expertise__link" target="_blank" rel="noopener">
+            foto.fetz.cc
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- About / Wer ich bin -->
+    <section class="about" id="ueber">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__content" data-reveal>
+            <span class="section-label">Wer ich bin</span>
+            <h2 class="about__title">Erfahrung schlägt Theorie.</h2>
+            <div class="about__text">
+              <p>
+                Ich sehe Klarheit, wo andere Chaos sehen. Das ist keine Technik – das ist einfach, wie mein Kopf funktioniert. Komplexe Projekte, viele Beteiligte, unklare Ziele? Ich sortiere, während andere noch suchen.
               </p>
-              <a href="https://foto.fetz.cc" class="brand-card__link" target="_blank" rel="noopener">
-                foto.fetz.cc
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
-                </svg>
-              </a>
+              <p>
+                Aber Klarheit allein reicht mir nicht. Ich will, dass andere sie auch finden. In Workshops bringe ich Menschen dazu, selbst auf Ideen zu kommen. In Projekten schaffe ich Strukturen, die Sinn ergeben. In meiner Fotografie zeige ich, was ist – damit andere eigene Schlüsse ziehen können.
+              </p>
+              <p>
+                Was mich antreibt? Neugier. Neue Technologien, neue Möglichkeiten, neue Perspektiven. Ich probiere aus, gehe an Grenzen, bleibe dran. Und ich vernetze – Menschen, Disziplinen, Ideen.
+              </p>
+              <p>
+                Gestaltung, Strategie, Technik, Leadership: Bei mir sind das keine getrennten Welten. Sondern Werkzeuge, die ich kombiniere, um Dinge voranzubringen. Und Menschen weiterzubringen – über das hinaus, was sie sich selbst zutrauen.
+              </p>
             </div>
-          </article>
+          </div>
+          <div class="about__image" data-image-scrub data-reveal>
+            <div class="about__image-slide is-active" style="background-image: url('assets/images/about/portrait-1.jpg');"></div>
+            <div class="about__image-slide" style="background-image: url('assets/images/about/portrait-2.jpg');"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -294,8 +394,74 @@
                 <li>Mobile-first Entwicklung</li>
                 <li>Über 2 Millionen Berechnungen pro Jahr</li>
               </ul>
-              <a href="https://finanzrechner.at" class="project__link" target="_blank" rel="noopener">
-                finanzrechner.at
+              <a href="https://werbeagentur-fetz.at" class="project__link" target="_blank" rel="noopener">
+                Zum Projekt
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project" data-reveal>
+            <div class="project__image">
+              <img src="assets/images/fetz/psi-smartcity-uebersicht.jpg" alt="PSI Smart City Kampagne">
+            </div>
+            <div class="project__content">
+              <p class="project__client">PSI Group</p>
+              <h3 class="project__title">Smart City Kommunikation</h3>
+              <p class="project__text">Ganzheitliche Kampagne für die PSI Smart City Initiative: Von der strategischen Positionierung über Print-Materialien bis zu digitalen Touchpoints.</p>
+              <ul class="project__features">
+                <li>Konzept und Kreation für Messe-Auftritte</li>
+                <li>Print-Kampagne und Newsletter-Serie</li>
+                <li>Social Media Content-Strategie</li>
+              </ul>
+              <a href="https://werbeagentur-fetz.at" class="project__link" target="_blank" rel="noopener">
+                Zum Projekt
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project" data-reveal>
+            <div class="project__image">
+              <img src="assets/images/fetz/sportradl-magazin.jpg" alt="Sportradl Magazin">
+            </div>
+            <div class="project__content">
+              <p class="project__client">Sportradl</p>
+              <h3 class="project__title">Magazin-Konzept & Design</h3>
+              <p class="project__text">Print-Magazin für die Radsport-Community: Editorial Design mit klarer Bildsprache und durchdachter Typografie für optimale Lesbarkeit.</p>
+              <ul class="project__features">
+                <li>Magazin-Layout und Bildkonzept</li>
+                <li>Redaktionelles Design-System</li>
+                <li>Druck-Vorbereitung und Qualitätskontrolle</li>
+              </ul>
+              <a href="https://werbeagentur-fetz.at" class="project__link" target="_blank" rel="noopener">
+                Zum Projekt
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project" data-reveal>
+            <div class="project__image">
+              <img src="assets/images/fetz/competence4you-website.jpg" alt="Competence4You Website">
+            </div>
+            <div class="project__content">
+              <p class="project__client">Competence4You</p>
+              <h3 class="project__title">Markenentwicklung & Webauftritt</h3>
+              <p class="project__text">Komplette Markenentwicklung für Personalentwicklungs-Startup: Von Logo und Corporate Design bis zur responsiven Website.</p>
+              <ul class="project__features">
+                <li>Brand Identity und Styleguide</li>
+                <li>Responsive Webdesign und Entwicklung</li>
+                <li>Print-Materialien (Folder, Visitenkarten)</li>
+              </ul>
+              <a href="https://werbeagentur-fetz.at" class="project__link" target="_blank" rel="noopener">
+                Zum Projekt
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
                 </svg>
@@ -309,22 +475,105 @@
     <!-- Lions -->
     <section class="lions" id="lions">
       <div class="container">
-        <div class="lions__grid">
-          <div class="lions__image" data-reveal>
-            <div class="lions__image-placeholder" style="background: linear-gradient(135deg, #1a3a5a 0%, #2a5a7a 100%);">Lions</div>
+        <div class="section-header" data-reveal>
+          <span class="section-label">Engagement</span>
+          <h2 class="section-title">Mehr als ein Ehrenamt</h2>
+        </div>
+
+        <div class="lions__hero">
+          <div class="lions__hero-image" data-reveal>
+            <img src="assets/images/lions/lions-hero.jpg" alt="Othmar Fetz bei Lions International">
           </div>
-          <div class="lions__content">
-            <h2 class="lions__title" data-reveal>Lions International</h2>
-            <p class="lions__text" data-reveal data-reveal-delay="1">
-              Seit 2009 engagiert. 1. Vize-Distrikt-Governor, LCIP-Trainer, Speaker auf internationalen Bühnen. Autor von „The LEO Book" – 400 Seiten, 30 Länder.
+          <div class="lions__hero-content" data-reveal>
+            <h3 class="lions__hero-title">Wissen teilen. Menschen verbinden.</h3>
+            <p class="lions__intro">
+              Ehrenamt ist für mich kein Nebenbei. Bei Lions International habe ich gelernt, was es heißt, Verantwortung zu übernehmen – nicht für Profit, sondern für Menschen. Seit 2009 gestalte ich mit: als Trainer, als Fotograf, als Führungskraft.
             </p>
-            <a href="https://lions.at" class="lions__link" target="_blank" rel="noopener" data-reveal data-reveal-delay="2">
-              lions.at
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
-              </svg>
-            </a>
+            <p class="lions__intro">
+              Was mich antreibt? Die Überzeugung, dass Wissen wächst, wenn man es teilt. Und dass die besten Projekte dort entstehen, wo Menschen mit unterschiedlichen Stärken zusammenkommen.
+            </p>
           </div>
+        </div>
+
+        <div class="lions-slider">
+          <div class="lions-slider__track">
+            <article class="lions-card">
+              <div class="lions-card__image">
+                <img src="assets/images/lions/dg-laufbahn.jpg" alt="2. Vize Distrikt Governor">
+              </div>
+              <div class="lions-card__content">
+                <h3 class="lions-card__title">2. Vize Distrikt Governor</h3>
+                <p class="lions-card__text">
+                  Aktuell 2. VDG im Distrikt 114 Mitte. Auf dem Weg zum District Governor – Führung übernehmen, die Organisation weiterentwickeln.
+                </p>
+              </div>
+            </article>
+
+            <article class="lions-card">
+              <div class="lions-card__image">
+                <img src="assets/images/lions/training.jpg" alt="Führungskräfte-Training">
+              </div>
+              <div class="lions-card__content">
+                <h3 class="lions-card__title">Führungskräfte-Training</h3>
+                <p class="lions-card__text">
+                  LCIP-Trainer für Führungskräfte-Weiterbildungen in Österreich. Wissen weitergeben, Menschen entwickeln.
+                </p>
+              </div>
+            </article>
+
+            <article class="lions-card">
+              <div class="lions-card__image">
+                <img src="assets/images/lions/leo-book.jpg" alt="The LEO Book">
+              </div>
+              <div class="lions-card__content">
+                <h3 class="lions-card__title">The LEO Book</h3>
+                <p class="lions-card__text">
+                  400 Seiten dokumentarische Fotografie aus 30 Ländern. Über 100 Lions- und LEO-Projekte in einem Buch.
+                </p>
+              </div>
+            </article>
+
+            <article class="lions-card">
+              <div class="lions-card__image">
+                <img src="assets/images/lions/international.jpg" alt="Internationale Bühne">
+              </div>
+              <div class="lions-card__content">
+                <h3 class="lions-card__title">Internationale Bühne</h3>
+                <p class="lions-card__text">
+                  Speaker auf internationalen Lions-Konferenzen. Fachwissen national und international einbringen.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section class="blog" id="blog">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-label">Gedanken</span>
+          <h2 class="section-title">Aus dem Blog</h2>
+        </div>
+
+        <p class="blog__intro" data-reveal>
+          Persönliches, Neues, Engagement und Berufliches – eine Gedankensammlung zu dem, was mich bewegt.
+        </p>
+
+        <div class="blog__grid" id="blogGrid">
+          <!-- Blog posts werden dynamisch geladen -->
+          <div class="blog__loading">Beiträge werden geladen...</div>
+        </div>
+
+        <div class="blog__cta" data-reveal>
+          <a href="https://blog.fetz.cc" class="blog__link" target="_blank" rel="noopener">
+            Alle Beiträge im Blog
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+            </svg>
+          </a>
         </div>
       </div>
     </section>
@@ -377,14 +626,99 @@
           </div>
         </div>
         <nav class="footer__links">
-          <a href="/impressum" class="footer__link">Impressum</a>
-          <a href="/datenschutz" class="footer__link">Datenschutz</a>
+          <a href="impressum.html" class="footer__link">Impressum</a>
+          <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+          <a href="agb.html" class="footer__link">AGB</a>
+          <button type="button" class="footer__link" data-cc="show-preferencesModal">Cookies</button>
         </nav>
       </div>
     </div>
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+  <script>
+    // Update Google Consent Mode
+    function updateGtagConsent() {
+      if (typeof gtag !== 'function' || !CookieConsent) return;
+      gtag('consent', 'update', {
+        'analytics_storage': CookieConsent.acceptedCategory('analytics') ? 'granted' : 'denied',
+        'ad_storage': CookieConsent.acceptedCategory('marketing') ? 'granted' : 'denied',
+        'ad_user_data': CookieConsent.acceptedCategory('marketing') ? 'granted' : 'denied',
+        'ad_personalization': CookieConsent.acceptedCategory('marketing') ? 'granted' : 'denied'
+      });
+    }
+
+    CookieConsent.run({
+      onFirstConsent: updateGtagConsent,
+      onConsent: updateGtagConsent,
+      onChange: updateGtagConsent,
+
+      guiOptions: {
+        consentModal: {
+          layout: 'box inline',
+          position: 'bottom left'
+        },
+        preferencesModal: {
+          layout: 'box'
+        }
+      },
+
+      categories: {
+        necessary: {
+          enabled: true,
+          readOnly: true
+        },
+        analytics: {
+          autoClear: {
+            cookies: [
+              { name: /^_ga/ },
+              { name: '_gid' }
+            ]
+          }
+        }
+      },
+
+      language: {
+        default: 'de',
+        translations: {
+          de: {
+            consentModal: {
+              title: 'Cookies & Datenschutz',
+              description: 'Diese Website nutzt Cookies, um die Nutzung zu analysieren. Du kannst deine Einstellungen jederzeit anpassen.',
+              acceptAllBtn: 'Alle akzeptieren',
+              acceptNecessaryBtn: 'Nur notwendige',
+              showPreferencesBtn: 'Einstellungen',
+              footer: '<a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a>'
+            },
+            preferencesModal: {
+              title: 'Cookie-Einstellungen',
+              acceptAllBtn: 'Alle akzeptieren',
+              acceptNecessaryBtn: 'Nur notwendige',
+              savePreferencesBtn: 'Speichern',
+              closeIconLabel: 'Schließen',
+              sections: [
+                {
+                  title: 'Cookie-Nutzung',
+                  description: 'Wir verwenden Cookies, um grundlegende Funktionen zu ermöglichen und die Nutzung unserer Website zu analysieren.'
+                },
+                {
+                  title: 'Notwendige Cookies',
+                  description: 'Diese Cookies sind für das Funktionieren der Website erforderlich und können nicht deaktiviert werden.',
+                  linkedCategory: 'necessary'
+                },
+                {
+                  title: 'Analyse-Cookies',
+                  description: 'Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren. Alle Daten werden anonymisiert.',
+                  linkedCategory: 'analytics'
+                }
+              ]
+            }
+          }
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
