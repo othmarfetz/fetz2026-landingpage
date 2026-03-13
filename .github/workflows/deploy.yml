@@ -22,7 +22,7 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
         run: |
-          sshpass -p "$SSH_PASSWORD" rsync -avz --delete \
+          sshpass -p "$SSH_PASSWORD" rsync -rltvz --delete --no-perms --no-group --no-owner \
             -e "ssh -o StrictHostKeyChecking=no" \
             --exclude '.git' \
             --exclude '.github' \
