@@ -453,7 +453,7 @@ section {
 
 @media (max-width: 768px) {
   .hero__bg img {
-    object-position: 25% top;
+    object-position: 75% top;
   }
 }
 
