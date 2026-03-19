@@ -277,3 +277,16 @@ html {
   width: 20px;
   height: 20px;
 }
+
+/* --------------------------------------------------------------------------
+   Coding Cluster Logo größer
+   -------------------------------------------------------------------------- */
+.expertise__logo--coding {
+  height: 38px !important;
+}
+
+@media (max-width: 768px) {
+  .expertise__logo--coding {
+    height: 32px !important;
+  }
+}
