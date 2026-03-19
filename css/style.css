@@ -599,10 +599,18 @@ section {
 }
 
 .expertise__logo {
-  height: 30px;
+  height: 26px;
   width: auto;
   margin-bottom: var(--space-4);
   display: block;
+}
+
+.expertise__logo--coding {
+  height: 38px;
+}
+
+.expertise__logo--foto {
+  height: 20px;
 }
 
 .expertise__title {
