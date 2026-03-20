@@ -2,10 +2,42 @@
    Legal Pages (Impressum, Datenschutz, AGB)
    ========================================================================== */
 
+/* Header on legal pages - always dark on light background */
+body:has(.legal) .header {
+  background: var(--color-white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+}
+
+body:has(.legal) .header__logo {
+  color: var(--color-primary);
+}
+
+body:has(.legal) .nav__link {
+  color: var(--color-text);
+}
+
+body:has(.legal) .nav__link:hover {
+  color: var(--color-primary);
+}
+
+body:has(.legal) .nav__cta {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+body:has(.legal) .nav__cta:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+body:has(.legal) .menu-toggle__line {
+  background: var(--color-primary);
+}
+
 /* Main Content */
 .legal {
-  padding: calc(80px + var(--space-3)) 0 var(--space-5) 0;
-  min-height: 100vh;
+  padding: calc(80px + var(--space-4)) 0 var(--space-4) 0;
+  min-height: auto;
   background: var(--color-cream);
 }
 
@@ -32,6 +64,7 @@
 }
 
 .legal__section {
+  padding: 0; /* Override global section padding */
   margin-bottom: var(--space-3);
 }
 
@@ -130,6 +163,7 @@
   }
 
   .legal__section {
+    padding: 0;
     margin-bottom: var(--space-2);
   }
 
