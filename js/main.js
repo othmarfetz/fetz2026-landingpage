@@ -532,6 +532,8 @@
     const slides = productsTrack.querySelectorAll('.product-slide');
     const dots = productsSlider.querySelectorAll('.products-slider__dot');
     const nextBtn = document.getElementById('sliderNext');
+    const nextBtnTop = document.getElementById('sliderNextTop');
+    const counterCurrent = productsSlider.querySelector('.products-slider__current');
     const totalSlides = slides.length;
     let currentIndex = 0;
 
@@ -549,15 +551,25 @@
       dots.forEach((dot, i) => {
         dot.classList.toggle('is-active', i === currentIndex);
       });
+
+      // Update counter
+      if (counterCurrent) {
+        counterCurrent.textContent = currentIndex + 1;
+      }
     }
 
     function nextSlide() {
       goToSlide(currentIndex + 1);
     }
 
-    // Next button
+    // Next button (bottom - desktop)
     if (nextBtn) {
       nextBtn.addEventListener('click', nextSlide);
+    }
+
+    // Next button (top - mobile)
+    if (nextBtnTop) {
+      nextBtnTop.addEventListener('click', nextSlide);
     }
 
     // Dot navigation
@@ -725,6 +737,41 @@
     }
 
     loadBlogPosts();
+  }
+
+  // ========================================================================
+  // Lions Slider Scroll Indicator
+  // ========================================================================
+  const lionsSlider = document.getElementById('lionsSlider');
+  const lionsWrapper = document.querySelector('.lions-slider-wrapper');
+
+  if (lionsSlider && lionsWrapper) {
+    lionsSlider.addEventListener('scroll', () => {
+      const scrollLeft = lionsSlider.scrollLeft;
+      const maxScroll = lionsSlider.scrollWidth - lionsSlider.clientWidth;
+
+      // When scrolled close to end, hide the fade gradient
+      if (scrollLeft >= maxScroll - 20) {
+        lionsWrapper.classList.add('scrolled-end');
+      } else {
+        lionsWrapper.classList.remove('scrolled-end');
+      }
+    }, { passive: true });
+  }
+
+  // ========================================================================
+  // About Section "Mehr lesen" Toggle
+  // ========================================================================
+  const aboutToggle = document.getElementById('aboutToggle');
+  const aboutMore = document.querySelector('.about__more');
+
+  if (aboutToggle && aboutMore) {
+    aboutToggle.addEventListener('click', () => {
+      const isExpanded = aboutToggle.getAttribute('aria-expanded') === 'true';
+
+      aboutToggle.setAttribute('aria-expanded', !isExpanded);
+      aboutMore.classList.toggle('is-expanded', !isExpanded);
+    });
   }
 
   // ========================================================================

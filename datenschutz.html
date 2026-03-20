@@ -17,7 +17,7 @@
 <body>
 
   <!-- Header -->
-  <header class="header header--legal">
+  <header class="header is-scrolled" id="header">
     <div class="header__inner">
       <a href="./" class="header__logo" aria-label="FETZ">
         <svg viewBox="0 0 175.53 26.31" aria-hidden="true">
@@ -30,9 +30,38 @@
           <path fill="#ec4c50" d="M29.5,0c0,2.93-1.19,5.61-3.11,7.53s-4.57,3.11-7.5,3.11h-1.38s-2.01,0-2.01,0c-4.28,0-8.15,1.73-10.96,4.53C1.73,17.99,0,22.03,0,26.31h5.52c0-2.93,1.19-5.75,3.11-7.67s4.57-3.11,7.5-3.11h1.38s2.01,0,2.01,0c4.28,0,8.15-1.73,10.96-4.53,2.81-2.81,4.54-6.71,4.54-10.99h-5.52Z"/>
         </svg>
       </a>
-      <a href="./" class="header__back">Zurück</a>
+
+      <nav class="nav" id="nav">
+        <div class="nav__inner">
+          <a href="./#expertise" class="nav__link">Expertise</a>
+          <a href="./#produkte" class="nav__link">Projekte</a>
+          <a href="./#projekte" class="nav__link">Arbeiten</a>
+          <a href="./#kontakt" class="nav__cta">
+            Kontakt
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menü">
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav__bg"></div>
+    <nav class="mobile-nav__content">
+      <a href="./#expertise" class="mobile-nav__link">Expertise</a>
+      <a href="./#produkte" class="mobile-nav__link">Projekte</a>
+      <a href="./#projekte" class="mobile-nav__link">Arbeiten</a>
+      <a href="./#kontakt" class="mobile-nav__link mobile-nav__link--cta">Kontakt</a>
+    </nav>
+  </div>
 
   <main class="legal">
     <div class="container">
@@ -45,8 +74,7 @@
         </p>
         <p>
           <strong>Verantwortlicher:</strong><br>
-          Werbeagentur FETZ<br>
-          Othmar Fetz<br>
+          Werbeagentur FETZ, Othmar Fetz<br>
           Kirchenstraße 16, 4615 Holzhausen<br>
           E-Mail: <a href="mailto:office@fetz.cc">office@fetz.cc</a>
         </p>
@@ -66,7 +94,7 @@
           <li>Datum und Uhrzeit des Zugriffs</li>
         </ul>
         <p>
-          Diese Daten werden in sogenannten Webserver-Logfiles für die Dauer von zwei Wochen gespeichert und danach automatisch gelöscht. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Rechtsgrundlage für diese Verarbeitung ist unser berechtigtes Interesse gemäß Artikel 6 Absatz 1 f DSGVO.
+          Diese Daten werden in Webserver-Logfiles für die Dauer von zwei Wochen gespeichert und danach automatisch gelöscht. Die Rechtsgrundlage ist unser berechtigtes Interesse gemäß Artikel 6 Absatz 1 f DSGVO.
         </p>
       </section>
 
@@ -76,7 +104,7 @@
           Personenbezogene Daten, die Sie uns über unsere Website übermitteln (z.B. Name, E-Mail-Adresse, Telefonnummer), werden nur zum jeweils angegebenen Zweck verwendet und nicht an Dritte weitergegeben, sofern dies nicht zur Vertragserfüllung erforderlich ist.
         </p>
         <p>
-          Die Rechtsgrundlage für die Verarbeitung Ihrer Daten ist Ihre Einwilligung gemäß Artikel 6 Absatz 1 a DSGVO. Sie können Ihre Einwilligung jederzeit formlos per E-Mail widerrufen.
+          Die Rechtsgrundlage ist Ihre Einwilligung gemäß Artikel 6 Absatz 1 a DSGVO. Sie können Ihre Einwilligung jederzeit formlos per E-Mail widerrufen.
         </p>
       </section>
 
@@ -86,71 +114,65 @@
         <ul>
           <li><strong>Recht auf Auskunft</strong> (Artikel 15 DSGVO)</li>
           <li><strong>Recht auf Berichtigung</strong> (Artikel 16 DSGVO)</li>
-          <li><strong>Recht auf Löschung / Recht auf Vergessenwerden</strong> (Artikel 17 DSGVO)</li>
+          <li><strong>Recht auf Löschung</strong> (Artikel 17 DSGVO)</li>
           <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Artikel 18 DSGVO)</li>
           <li><strong>Recht auf Datenübertragbarkeit</strong> (Artikel 20 DSGVO)</li>
           <li><strong>Widerspruchsrecht</strong> (Artikel 21 DSGVO)</li>
-          <li><strong>Recht, nicht einer automatisierten Entscheidung unterworfen zu werden</strong> (Artikel 22 DSGVO)</li>
         </ul>
         <p>
-          Wenn Sie der Meinung sind, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt, können Sie sich bei der österreichischen Datenschutzbehörde beschweren: <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">www.dsb.gv.at</a>
+          Beschwerden können bei der österreichischen Datenschutzbehörde eingereicht werden: <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">www.dsb.gv.at</a>
         </p>
       </section>
 
       <section class="legal__section">
         <h2>TLS-Verschlüsselung</h2>
         <p>
-          Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine TLS-Verschlüsselung (HTTPS). Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von "http://" auf "https://" wechselt und am Schloss-Symbol in Ihrer Browserzeile.
+          Diese Website nutzt aus Sicherheitsgründen eine TLS-Verschlüsselung (HTTPS). Eine verschlüsselte Verbindung erkennen Sie am Schloss-Symbol in Ihrer Browserzeile.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>Cookies</h2>
         <p>
-          Unsere Website verwendet Cookies. Das sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie richten keinen Schaden an und enthalten keine Viren.
+          Unsere Website verwendet Cookies. Das sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie richten keinen Schaden an.
         </p>
         <p>
-          Wir unterscheiden zwischen notwendigen Cookies (für den Betrieb der Website erforderlich) und Analyse-Cookies (zur Verbesserung unserer Website). Analyse-Cookies werden nur mit Ihrer ausdrücklichen Einwilligung gesetzt.
+          Wir unterscheiden zwischen notwendigen Cookies (für den Betrieb erforderlich) und Analyse-Cookies (zur Verbesserung unserer Website). Analyse-Cookies werden nur mit Ihrer ausdrücklichen Einwilligung gesetzt.
         </p>
         <p>
-          Sie können Ihre Cookie-Einstellungen jederzeit über den Link "Cookies" im Footer dieser Website anpassen oder Cookies in Ihren Browsereinstellungen deaktivieren.
+          Sie können Ihre Cookie-Einstellungen jederzeit über den Link "Cookies" im Footer anpassen.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>Google Analytics</h2>
         <p>
-          Diese Website nutzt Google Analytics, einen Webanalysedienst der Google LLC ("Google"). Google Analytics verwendet Cookies, die eine Analyse der Benutzung der Website ermöglichen.
+          Diese Website nutzt Google Analytics, einen Webanalysedienst der Google LLC. Google Analytics verwendet Cookies, die eine Analyse der Benutzung der Website ermöglichen.
         </p>
         <p>
-          Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden an einen Server von Google in den USA übertragen und dort gespeichert. Wir haben die IP-Anonymisierung aktiviert, sodass Ihre IP-Adresse von Google innerhalb der EU vor der Übermittlung gekürzt wird.
-        </p>
-        <p>
-          Google Analytics wird nur aktiviert, wenn Sie in unserem Cookie-Banner der Kategorie "Analyse" zugestimmt haben. Die Rechtsgrundlage ist Ihre Einwilligung gemäß Artikel 6 Absatz 1 a DSGVO.
+          Wir haben die IP-Anonymisierung aktiviert, sodass Ihre IP-Adresse von Google innerhalb der EU vor der Übermittlung gekürzt wird. Google Analytics wird nur aktiviert, wenn Sie im Cookie-Banner der Kategorie "Analyse" zugestimmt haben.
         </p>
         <p>
           Verwendete Cookies: _ga (Ablauf: 2 Jahre), _gid (Ablauf: 24 Stunden)
         </p>
         <p>
-          Sie können die Erfassung durch Google Analytics verhindern, indem Sie das Browser-Add-on zur Deaktivierung von Google Analytics installieren: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">https://tools.google.com/dlpage/gaoptout</a>
+          Sie können die Erfassung verhindern durch das Browser-Add-on: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">https://tools.google.com/dlpage/gaoptout</a>
         </p>
       </section>
 
       <section class="legal__section">
         <h2>Google Fonts</h2>
         <p>
-          Diese Website verwendet keine externen Google Fonts. Alle Schriften werden lokal vom eigenen Server geladen. Es erfolgt keine Datenübertragung an Google.
+          Diese Website verwendet keine externen Google Fonts. Alle Schriften werden lokal vom eigenen Server geladen.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>Änderungen</h2>
         <p>
-          Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen umzusetzen.
+          Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht.
         </p>
-        <p>
-          <em>Stand: März 2026</em>
-        </p>
+        <p><em>Stand: März 2026</em></p>
       </section>
 
     </div>
@@ -184,6 +206,8 @@
       </div>
     </div>
   </footer>
+
+  <script src="js/main.js" defer></script>
 
 </body>
 </html>
