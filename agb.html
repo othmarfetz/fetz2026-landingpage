@@ -13,11 +13,20 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/legal.css">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-837SD28H3S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-837SD28H3S');
+  </script>
 </head>
 <body>
 
   <!-- Header -->
-  <header class="header header--legal">
+  <header class="header is-scrolled" id="header">
     <div class="header__inner">
       <a href="./" class="header__logo" aria-label="FETZ">
         <svg viewBox="0 0 175.53 26.31" aria-hidden="true">
@@ -30,9 +39,38 @@
           <path fill="#ec4c50" d="M29.5,0c0,2.93-1.19,5.61-3.11,7.53s-4.57,3.11-7.5,3.11h-1.38s-2.01,0-2.01,0c-4.28,0-8.15,1.73-10.96,4.53C1.73,17.99,0,22.03,0,26.31h5.52c0-2.93,1.19-5.75,3.11-7.67s4.57-3.11,7.5-3.11h1.38s2.01,0,2.01,0c4.28,0,8.15-1.73,10.96-4.53,2.81-2.81,4.54-6.71,4.54-10.99h-5.52Z"/>
         </svg>
       </a>
-      <a href="./" class="header__back">Zurück</a>
+
+      <nav class="nav" id="nav">
+        <div class="nav__inner">
+          <a href="./#expertise" class="nav__link">Expertise</a>
+          <a href="./#produkte" class="nav__link">Projekte</a>
+          <a href="./#projekte" class="nav__link">Arbeiten</a>
+          <a href="./#kontakt" class="nav__cta">
+            Kontakt
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menü">
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav__bg"></div>
+    <nav class="mobile-nav__content">
+      <a href="./#expertise" class="mobile-nav__link">Expertise</a>
+      <a href="./#produkte" class="mobile-nav__link">Projekte</a>
+      <a href="./#projekte" class="mobile-nav__link">Arbeiten</a>
+      <a href="./#kontakt" class="mobile-nav__link mobile-nav__link--cta">Kontakt</a>
+    </nav>
+  </div>
 
   <main class="legal">
     <div class="container">
@@ -41,7 +79,7 @@
       <section class="legal__section">
         <h2>§ 1 Geltung</h2>
         <p>
-          Diese Allgemeinen Geschäftsbedingungen gelten für alle Geschäftsbeziehungen zwischen der Werbeagentur FETZ (im Folgenden "Agentur") und dem Auftraggeber (im Folgenden "Kunde"). Sie gelten auch für alle künftigen Geschäftsbeziehungen, selbst wenn nicht ausdrücklich auf sie Bezug genommen wird.
+          Diese Allgemeinen Geschäftsbedingungen gelten für alle Geschäftsbeziehungen zwischen der Werbeagentur FETZ (Agentur) und dem Auftraggeber (Kunde). Sie gelten auch für alle künftigen Geschäftsbeziehungen, selbst wenn nicht ausdrücklich auf sie Bezug genommen wird.
         </p>
         <p>
           Abweichende Bedingungen des Kunden werden nicht anerkannt, es sei denn, die Agentur stimmt ihrer Geltung ausdrücklich schriftlich zu.
@@ -51,168 +89,113 @@
       <section class="legal__section">
         <h2>§ 2 Vertragsabschluss</h2>
         <p>
-          Alle Angebote der Agentur sind unverbindlich und freibleibend. Aufträge des Kunden binden diesen zwei Wochen lang. Ein Vertrag kommt erst durch die schriftliche Auftragsbestätigung der Agentur oder durch Beginn der Leistungserbringung zustande.
-        </p>
-        <p>
-          Änderungen und Ergänzungen des Vertrages bedürfen der Schriftform.
+          Alle Angebote der Agentur sind unverbindlich. Aufträge des Kunden binden diesen zwei Wochen lang. Ein Vertrag kommt erst durch die schriftliche Auftragsbestätigung der Agentur oder durch Beginn der Leistungserbringung zustande.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 3 Leistungsumfang</h2>
         <p>
-          Der Umfang der zu erbringenden Leistungen ergibt sich aus der Auftragsbestätigung bzw. dem Angebot der Agentur. Änderungen des Leistungsinhalts bedürfen der schriftlichen Bestätigung.
+          Der Umfang der Leistungen ergibt sich aus der Auftragsbestätigung. Der Kunde ist verpflichtet, die Leistungen innerhalb von drei Werktagen zu prüfen und freizugeben. Erfolgt keine Rückmeldung, gelten die Leistungen als genehmigt.
         </p>
         <p>
-          Der Kunde ist verpflichtet, die Leistungen der Agentur innerhalb von drei Werktagen nach Übermittlung zu prüfen und freizugeben. Erfolgt keine Rückmeldung innerhalb dieser Frist, gelten die Leistungen als genehmigt.
-        </p>
-        <p>
-          Mehrkosten, die durch nachträgliche Änderungswünsche des Kunden entstehen, trägt der Kunde.
+          Mehrkosten durch nachträgliche Änderungswünsche trägt der Kunde.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 4 Fremdleistungen</h2>
         <p>
-          Die Agentur ist berechtigt, zur Vertragserfüllung Dritte (z.B. Fotografen, Programmierer, Druckereien) hinzuzuziehen. Bei Beauftragung von Dritten im Namen und auf Rechnung des Kunden gelten dessen AGB.
-        </p>
-        <p>
-          Die Agentur wählt Subunternehmer mit der gebotenen Sorgfalt aus.
+          Die Agentur ist berechtigt, zur Vertragserfüllung Dritte hinzuzuziehen und wählt Subunternehmer mit der gebotenen Sorgfalt aus.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 5 Termine und Fristen</h2>
         <p>
-          Liefertermine und Fristen sind nur verbindlich, wenn sie ausdrücklich schriftlich vereinbart wurden. Bei Verzögerungen ist der Kunde verpflichtet, der Agentur eine angemessene Nachfrist von mindestens 14 Tagen einzuräumen.
-        </p>
-        <p>
-          Die Agentur haftet nicht für Verzögerungen aufgrund höherer Gewalt oder anderer unvorhersehbarer Umstände.
+          Liefertermine sind nur verbindlich, wenn sie schriftlich vereinbart wurden. Bei Verzögerungen ist eine Nachfrist von mindestens 14 Tagen einzuräumen.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 6 Rücktritt</h2>
-        <p>
-          Die Agentur ist zum Rücktritt vom Vertrag berechtigt, wenn:
-        </p>
+        <p>Die Agentur ist zum Rücktritt berechtigt, wenn:</p>
         <ul>
-          <li>die Leistungserbringung aus Gründen, die der Kunde zu vertreten hat, unmöglich wird</li>
+          <li>die Leistungserbringung aus Gründen des Kunden unmöglich wird</li>
           <li>der Kunde trotz Mahnung mit Zahlungen in Verzug gerät</li>
-          <li>begründete Bedenken hinsichtlich der Zahlungsfähigkeit des Kunden bestehen</li>
+          <li>begründete Bedenken zur Zahlungsfähigkeit bestehen</li>
         </ul>
-        <p>
-          Im Falle eines Rücktritts sind bereits erbrachte Leistungen anteilig zu vergüten.
-        </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 7 Honorar</h2>
         <p>
-          Die Vergütung der Agentur richtet sich nach dem vereinbarten Angebot. Soweit nichts anderes vereinbart wurde, beträgt das Agenturhonorar 15% des Werbebudgets (exkl. USt).
-        </p>
-        <p>
-          Zusatzleistungen, die über den ursprünglichen Auftrag hinausgehen, werden gesondert nach Aufwand abgerechnet.
-        </p>
-        <p>
-          Alle Preise verstehen sich exklusive der gesetzlichen Umsatzsteuer.
+          Die Vergütung richtet sich nach dem vereinbarten Angebot. Soweit nichts anderes vereinbart wurde, beträgt das Agenturhonorar 15% des Werbebudgets (exkl. USt). Zusatzleistungen werden gesondert abgerechnet.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 8 Zahlung</h2>
         <p>
-          Rechnungen sind innerhalb von 14 Tagen ab Rechnungsdatum ohne Abzug zur Zahlung fällig.
-        </p>
-        <p>
-          Bei Zahlungsverzug werden Verzugszinsen in Höhe von 9,2 Prozentpunkten über dem jeweiligen Basiszinssatz berechnet. Die Geltendmachung eines darüber hinausgehenden Schadens bleibt vorbehalten.
-        </p>
-        <p>
-          Bei größeren Aufträgen ist die Agentur berechtigt, angemessene Anzahlungen zu verlangen.
+          Rechnungen sind innerhalb von 14 Tagen ohne Abzug zur Zahlung fällig. Bei Zahlungsverzug werden Verzugszinsen von 9,2 Prozentpunkten über dem Basiszinssatz berechnet.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 9 Präsentationen und Entwürfe</h2>
         <p>
-          Präsentationsunterlagen, Entwürfe und Konzepte bleiben bis zur vollständigen Bezahlung Eigentum der Agentur. Eine Nutzung durch den Kunden ohne Auftragserteilung ist nicht gestattet.
-        </p>
-        <p>
-          Für die Erstellung von Präsentationen und Wettbewerbsbeiträgen kann die Agentur eine angemessene Vergütung verlangen.
+          Präsentationsunterlagen und Entwürfe bleiben bis zur vollständigen Bezahlung Eigentum der Agentur. Eine Nutzung ohne Auftrag ist nicht gestattet.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 10 Eigentum und Urheberrecht</h2>
         <p>
-          Alle von der Agentur geschaffenen Werke unterliegen dem Urheberrecht. Die Nutzungsrechte gehen erst nach vollständiger Bezahlung auf den Kunden über.
-        </p>
-        <p>
-          Die Einräumung von Nutzungsrechten bezieht sich, soweit nicht anders vereinbart, nur auf den im Vertrag genannten Verwendungszweck und ist zeitlich auf die Dauer der Geschäftsbeziehung beschränkt.
-        </p>
-        <p>
-          Eine Weitergabe von Nutzungsrechten an Dritte bedarf der schriftlichen Zustimmung der Agentur.
+          Alle Werke unterliegen dem Urheberrecht. Die Nutzungsrechte gehen erst nach vollständiger Bezahlung auf den Kunden über und beziehen sich nur auf den vereinbarten Verwendungszweck.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 11 Kennzeichnung</h2>
         <p>
-          Die Agentur ist berechtigt, auf allen Werbemitteln und bei allen Werbemaßnahmen auf sich als Urheber hinzuweisen, ohne dass dem Kunden dafür ein Entgeltanspruch zusteht.
-        </p>
-        <p>
-          Die Agentur ist berechtigt, die für den Kunden erbrachten Leistungen zu Präsentationszwecken (Portfolio, Website, Social Media) zu verwenden.
+          Die Agentur ist berechtigt, auf Werbemitteln auf sich als Urheber hinzuweisen und Arbeiten zu Präsentationszwecken zu verwenden.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 12 Gewährleistung</h2>
         <p>
-          Mängelrügen müssen unverzüglich, spätestens jedoch innerhalb von drei Werktagen nach Lieferung schriftlich erfolgen.
-        </p>
-        <p>
-          Bei berechtigten Mängeln hat die Agentur das Recht zur Nachbesserung. Schlägt die Nachbesserung zweimal fehl, kann der Kunde Minderung oder Wandlung verlangen.
-        </p>
-        <p>
-          Schadenersatzansprüche sind auf Fälle von Vorsatz und grober Fahrlässigkeit beschränkt.
+          Mängelrügen müssen innerhalb von drei Werktagen schriftlich erfolgen. Bei berechtigten Mängeln hat die Agentur das Recht zur Nachbesserung.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 13 Haftung</h2>
         <p>
-          Die Agentur haftet nur für Schäden, die auf Vorsatz oder grobe Fahrlässigkeit zurückzuführen sind. Die Haftung für leichte Fahrlässigkeit ist ausgeschlossen.
-        </p>
-        <p>
-          Die Haftung ist der Höhe nach auf den Netto-Auftragswert beschränkt. Die Haftung für entgangenen Gewinn, nicht eingetretene Ersparnisse und Folgeschäden ist ausgeschlossen.
-        </p>
-        <p>
-          Diese Haftungsbeschränkungen gelten nicht für Personenschäden.
+          Die Agentur haftet nur für Vorsatz oder grobe Fahrlässigkeit. Die Haftung ist auf den Netto-Auftragswert beschränkt.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 14 Anwendbares Recht</h2>
         <p>
-          Es gilt österreichisches Recht unter Ausschluss des UN-Kaufrechts und der Verweisungsnormen des internationalen Privatrechts.
+          Es gilt österreichisches Recht unter Ausschluss des UN-Kaufrechts.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 15 Gerichtsstand</h2>
         <p>
-          Für alle Streitigkeiten aus oder im Zusammenhang mit diesem Vertrag ist das sachlich zuständige Gericht am Sitz der Agentur (Wels, Österreich) ausschließlich zuständig.
+          Für alle Streitigkeiten ist das sachlich zuständige Gericht am Sitz der Agentur (Wels, Österreich) ausschließlich zuständig.
         </p>
       </section>
 
       <section class="legal__section">
         <h2>§ 16 Salvatorische Klausel</h2>
         <p>
-          Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, so berührt dies die Wirksamkeit der übrigen Bestimmungen nicht. Die unwirksame Bestimmung ist durch eine wirksame zu ersetzen, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung am nächsten kommt.
+          Sollten einzelne Bestimmungen unwirksam sein, berührt dies die Wirksamkeit der übrigen Bestimmungen nicht.
         </p>
-        <p>
-          <em>Stand: März 2026</em>
-        </p>
+        <p><em>Stand: März 2026</em></p>
       </section>
 
     </div>
@@ -246,6 +229,8 @@
       </div>
     </div>
   </footer>
+
+  <script src="js/main.js" defer></script>
 
 </body>
 </html>

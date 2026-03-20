@@ -13,11 +13,20 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/legal.css">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-837SD28H3S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-837SD28H3S');
+  </script>
 </head>
 <body>
 
   <!-- Header -->
-  <header class="header header--legal">
+  <header class="header is-scrolled" id="header">
     <div class="header__inner">
       <a href="./" class="header__logo" aria-label="FETZ">
         <svg viewBox="0 0 175.53 26.31" aria-hidden="true">
@@ -30,9 +39,38 @@
           <path fill="#ec4c50" d="M29.5,0c0,2.93-1.19,5.61-3.11,7.53s-4.57,3.11-7.5,3.11h-1.38s-2.01,0-2.01,0c-4.28,0-8.15,1.73-10.96,4.53C1.73,17.99,0,22.03,0,26.31h5.52c0-2.93,1.19-5.75,3.11-7.67s4.57-3.11,7.5-3.11h1.38s2.01,0,2.01,0c4.28,0,8.15-1.73,10.96-4.53,2.81-2.81,4.54-6.71,4.54-10.99h-5.52Z"/>
         </svg>
       </a>
-      <a href="./" class="header__back">Zurück</a>
+
+      <nav class="nav" id="nav">
+        <div class="nav__inner">
+          <a href="./#expertise" class="nav__link">Expertise</a>
+          <a href="./#produkte" class="nav__link">Projekte</a>
+          <a href="./#projekte" class="nav__link">Arbeiten</a>
+          <a href="./#kontakt" class="nav__cta">
+            Kontakt
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menü">
+        <span class="menu-toggle__line"></span>
+        <span class="menu-toggle__line"></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav__bg"></div>
+    <nav class="mobile-nav__content">
+      <a href="./#expertise" class="mobile-nav__link">Expertise</a>
+      <a href="./#produkte" class="mobile-nav__link">Projekte</a>
+      <a href="./#projekte" class="mobile-nav__link">Arbeiten</a>
+      <a href="./#kontakt" class="mobile-nav__link mobile-nav__link--cta">Kontakt</a>
+    </nav>
+  </div>
 
   <main class="legal">
     <div class="container">
@@ -83,7 +121,7 @@
       <section class="legal__section">
         <h2>Haftung für Links</h2>
         <p>
-          Diese Website enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+          Diese Website enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
         </p>
       </section>
 
@@ -135,6 +173,8 @@
       </div>
     </div>
   </footer>
+
+  <script src="js/main.js" defer></script>
 
 </body>
 </html>
