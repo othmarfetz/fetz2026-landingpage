@@ -36,7 +36,7 @@ body:has(.legal) .menu-toggle__line {
 
 /* Main Content */
 .legal {
-  padding: calc(100px + var(--space-5)) 0 var(--space-6) 0;
+  padding: calc(120px + var(--space-6)) 0 var(--space-6) 0;
   min-height: auto;
   background: var(--color-cream);
 }
@@ -102,7 +102,7 @@ body:has(.legal) .menu-toggle__line {
 
 .legal__section {
   padding: 0; /* Override global section padding */
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
 }
 
 .legal__section:last-child {
