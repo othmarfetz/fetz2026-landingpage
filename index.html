@@ -59,12 +59,12 @@
           <a href="#expertise" class="nav__link">Expertise</a>
           <a href="#projekte" class="nav__link">Arbeiten</a>
           <a href="#lions" class="nav__link">Engagement</a>
-          <a href="#kontakt" class="nav__cta">
+          <button type="button" class="nav__cta" data-contact-modal>
             Kontakt
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
-          </a>
+          </button>
         </div>
       </nav>
 
@@ -83,7 +83,7 @@
       <a href="#expertise" class="mobile-nav__link">Expertise</a>
       <a href="#projekte" class="mobile-nav__link">Arbeiten</a>
       <a href="#lions" class="mobile-nav__link">Engagement</a>
-      <a href="#kontakt" class="mobile-nav__link mobile-nav__link--cta">Kontakt</a>
+      <button type="button" class="mobile-nav__link mobile-nav__link--cta" data-contact-modal>Kontakt</button>
     </nav>
   </div>
 
@@ -496,6 +496,12 @@
             <p class="contact__text">
               Projekte scheitern selten an fehlenden Ideen. Sondern daran, dass niemand sie zu Ende bringt. Wenn Sie jemanden suchen, der Klarheit schafft und Dinge umsetzt, melden Sie sich.
             </p>
+            <button type="button" class="contact__cta" data-contact-modal>
+              Nachricht schreiben
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
           </div>
           <div class="contact__info" data-reveal data-reveal-delay="1">
             <div class="contact__method">
@@ -510,6 +516,83 @@
         </div>
       </div>
     </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+      <div class="contact-modal__backdrop"></div>
+      <div class="contact-modal__content">
+        <button class="contact-modal__close" aria-label="Schließen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+
+        <div class="contact-modal__header">
+          <h2 class="contact-modal__title">Kontakt aufnehmen</h2>
+          <p class="contact-modal__text">Schreiben Sie mir über Ihr Projekt. Ich melde mich zeitnah bei Ihnen.</p>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="contact-form__row">
+            <div class="contact-form__group">
+              <label class="contact-form__label" for="firstName">Vorname</label>
+              <input type="text" id="firstName" name="firstName" class="contact-form__input" required>
+              <span class="contact-form__error"></span>
+            </div>
+            <div class="contact-form__group">
+              <label class="contact-form__label" for="lastName">Nachname</label>
+              <input type="text" id="lastName" name="lastName" class="contact-form__input" required>
+              <span class="contact-form__error"></span>
+            </div>
+          </div>
+
+          <div class="contact-form__row">
+            <div class="contact-form__group">
+              <label class="contact-form__label contact-form__label--optional" for="company">Firma</label>
+              <input type="text" id="company" name="company" class="contact-form__input">
+            </div>
+            <div class="contact-form__group">
+              <label class="contact-form__label" for="email">E-Mail-Adresse</label>
+              <input type="email" id="email" name="email" class="contact-form__input" required>
+              <span class="contact-form__error"></span>
+            </div>
+          </div>
+
+          <div class="contact-form__group">
+            <label class="contact-form__label" for="message">Nachricht</label>
+            <textarea id="message" name="message" class="contact-form__textarea" rows="4" required></textarea>
+            <span class="contact-form__error"></span>
+          </div>
+
+          <div class="contact-form__privacy">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <label for="privacy">
+              Ich stimme der Verarbeitung meiner Daten gemäß der <a href="datenschutz" target="_blank">Datenschutzerklärung</a> zu.
+              <span class="contact-form__error"></span>
+            </label>
+          </div>
+
+          <button type="submit" class="contact-form__submit">
+            Nachricht senden
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+            <span class="contact-form__spinner"></span>
+          </button>
+        </form>
+
+        <div class="contact-modal__success">
+          <div class="contact-modal__success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5"/>
+            </svg>
+          </div>
+          <h3 class="contact-modal__success-title">Vielen Dank!</h3>
+          <p class="contact-modal__success-text">Ihre Nachricht wurde gesendet. Ich melde mich innerhalb von 1-2 Werktagen bei Ihnen.</p>
+          <button type="button" class="contact-modal__success-close">Schließen</button>
+        </div>
+      </div>
+    </div>
 
   </main>
 
@@ -553,9 +636,9 @@
             </a>
           </div>
           <nav class="footer__links">
-            <a href="impressum.html" class="footer__link">Impressum</a>
-            <a href="datenschutz.html" class="footer__link">Datenschutz</a>
-            <a href="agb.html" class="footer__link">AGB</a>
+            <a href="impressum" class="footer__link">Impressum</a>
+            <a href="datenschutz" class="footer__link">Datenschutz</a>
+            <a href="agb" class="footer__link">AGB</a>
             <button type="button" class="footer__link" data-cc="show-preferencesModal">Cookies</button>
           </nav>
         </div>
@@ -617,7 +700,7 @@
               acceptAllBtn: 'Alle akzeptieren',
               acceptNecessaryBtn: 'Nur notwendige',
               showPreferencesBtn: 'Einstellungen',
-              footer: '<a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a>'
+              footer: '<a href="datenschutz">Datenschutz</a> · <a href="impressum">Impressum</a>'
             },
             preferencesModal: {
               title: 'Cookie-Einstellungen',

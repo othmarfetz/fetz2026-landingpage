@@ -29,4 +29,5 @@ jobs:
             --exclude '.claude' \
             --exclude 'CLAUDE.md' \
             --exclude '*-test.html' \
+            --exclude 'api/config.php' \
             ./ "$SSH_USER@$SSH_HOST:~/www/fetz_cc/landing/"

@@ -775,6 +775,169 @@
   }
 
   // ========================================================================
+  // Contact Modal
+  // ========================================================================
+  const contactModal = document.getElementById('contactModal');
+
+  if (contactModal) {
+    const backdrop = contactModal.querySelector('.contact-modal__backdrop');
+    const closeBtn = contactModal.querySelector('.contact-modal__close');
+    const successCloseBtn = contactModal.querySelector('.contact-modal__success-close');
+    const form = contactModal.querySelector('.contact-form');
+    const submitBtn = form?.querySelector('.contact-form__submit');
+
+    // Open modal triggers
+    document.querySelectorAll('[data-contact-modal]').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        openContactModal();
+      });
+    });
+
+    function openContactModal() {
+      contactModal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      // Close mobile nav if open
+      if (mobileNav && mobileNav.classList.contains('is-open')) {
+        closeMobileNav();
+      }
+      // Focus first input
+      const firstInput = form?.querySelector('input:not([type="checkbox"])');
+      if (firstInput) {
+        setTimeout(() => firstInput.focus(), 100);
+      }
+    }
+
+    function closeContactModal() {
+      contactModal.classList.remove('is-open');
+      contactModal.classList.remove('is-success');
+      document.body.style.overflow = '';
+      // Reset form
+      if (form) {
+        form.reset();
+        form.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
+        form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+      }
+      if (submitBtn) {
+        submitBtn.classList.remove('is-loading');
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Close handlers
+    backdrop?.addEventListener('click', closeContactModal);
+    closeBtn?.addEventListener('click', closeContactModal);
+    successCloseBtn?.addEventListener('click', closeContactModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && contactModal.classList.contains('is-open')) {
+        closeContactModal();
+      }
+    });
+
+    // Form submission
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Reset errors
+        form.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
+        form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+
+        // Gather form data
+        const formData = {
+          firstName: form.querySelector('[name="firstName"]')?.value.trim() || '',
+          lastName: form.querySelector('[name="lastName"]')?.value.trim() || '',
+          company: form.querySelector('[name="company"]')?.value.trim() || '',
+          email: form.querySelector('[name="email"]')?.value.trim() || '',
+          message: form.querySelector('[name="message"]')?.value.trim() || '',
+          privacy: form.querySelector('[name="privacy"]')?.checked || false
+        };
+
+        // Validation
+        let isValid = true;
+
+        if (!formData.firstName) {
+          showFormError('firstName', 'Bitte geben Sie Ihren Vornamen ein.');
+          isValid = false;
+        }
+
+        if (!formData.lastName) {
+          showFormError('lastName', 'Bitte geben Sie Ihren Nachnamen ein.');
+          isValid = false;
+        }
+
+        if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+          showFormError('email', 'Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+          isValid = false;
+        }
+
+        if (!formData.message) {
+          showFormError('message', 'Bitte geben Sie eine Nachricht ein.');
+          isValid = false;
+        }
+
+        if (!formData.privacy) {
+          showFormError('privacy', 'Bitte stimmen Sie der Datenschutzerklärung zu.');
+          isValid = false;
+        }
+
+        if (!isValid) return;
+
+        // Submit
+        submitBtn.classList.add('is-loading');
+        submitBtn.disabled = true;
+
+        try {
+          const response = await fetch('/api/contact.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            contactModal.classList.add('is-success');
+
+            // Track successful submission
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', {
+                event_category: 'Contact',
+                event_label: 'Contact Form Submission'
+              });
+            }
+          } else {
+            alert(result.message || 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+          }
+        } catch (error) {
+          console.error('Contact form error:', error);
+          alert('Ein Fehler ist aufgetreten. Bitte schreiben Sie direkt an othmar@fetz.cc');
+        } finally {
+          submitBtn.classList.remove('is-loading');
+          submitBtn.disabled = false;
+        }
+      });
+
+      function showFormError(fieldName, message) {
+        const input = form.querySelector(`[name="${fieldName}"]`);
+        const group = input?.closest('.contact-form__group') || input?.closest('.contact-form__privacy');
+        const errorEl = group?.querySelector('.contact-form__error');
+
+        if (input && input.type !== 'checkbox') {
+          input.classList.add('is-invalid');
+        }
+        if (group) {
+          group.classList.add('has-error');
+        }
+        if (errorEl) {
+          errorEl.textContent = message;
+        }
+      }
+    }
+  }
+
+  // ========================================================================
   // Console Branding
   // ========================================================================
   console.log(
