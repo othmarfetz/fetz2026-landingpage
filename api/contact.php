@@ -45,6 +45,33 @@ if (!$data) {
     exit;
 }
 
+// Anti-spam checks
+// 1. Honeypot field - should be empty (bots fill hidden fields)
+if (!empty($data['website'])) {
+    logSpam('honeypot', $data);
+    echo json_encode(['success' => true, 'message' => 'Vielen Dank! Ihre Nachricht wurde gesendet.']);
+    exit;
+}
+
+// 2. Time-based check - form should take at least 5 seconds to fill
+$timestamp = intval($data['_timestamp'] ?? 0);
+if ($timestamp > 0) {
+    $timeDiff = (time() * 1000) - $timestamp;
+    if ($timeDiff < 5000) {
+        logSpam('too_fast', $data);
+        echo json_encode(['success' => true, 'message' => 'Vielen Dank! Ihre Nachricht wurde gesendet.']);
+        exit;
+    }
+}
+
+// 3. Heuristic content check - catches random-string bot submissions
+$spamReason = detectSpamContent($data);
+if ($spamReason !== null) {
+    logSpam($spamReason, $data);
+    echo json_encode(['success' => true, 'message' => 'Vielen Dank! Ihre Nachricht wurde gesendet.']);
+    exit;
+}
+
 // Validate required fields
 $required = ['firstName', 'lastName', 'email', 'message'];
 $errors = [];
@@ -298,4 +325,112 @@ function hubspotRequest($method, $endpoint, $data = null) {
     }
 
     return $decoded ?: [];
+}
+
+/**
+ * Heuristic spam detection for random-string bot submissions.
+ * Returns a short reason string if the submission looks like spam, null otherwise.
+ */
+function detectSpamContent($data) {
+    $firstName = trim((string)($data['firstName'] ?? ''));
+    $lastName  = trim((string)($data['lastName']  ?? ''));
+    $company   = trim((string)($data['company']   ?? ''));
+    $message   = trim((string)($data['message']   ?? ''));
+    $email     = trim((string)($data['email']     ?? ''));
+
+    // Names must not contain digits or symbols typical of generated strings
+    if (preg_match('/[\d@\/\\\\<>{}\[\]|]/u', $firstName . $lastName)) {
+        return 'name_has_symbols';
+    }
+
+    // Each text field: check for gibberish-style "words"
+    foreach (['firstName' => $firstName, 'lastName' => $lastName, 'company' => $company, 'message' => $message] as $key => $text) {
+        if ($text === '') continue;
+        if (looksLikeGibberish($text)) {
+            return 'gibberish_' . $key;
+        }
+    }
+
+    // Message-specific: a real message of length >= 12 will almost always contain a space
+    if (mb_strlen($message) >= 12 && strpos($message, ' ') === false) {
+        return 'message_no_space';
+    }
+
+    // Email: Gmail dots trick (e.g. "i.ki.so.yiy.i.t.i.45@gmail.com") — 4+ dots in localpart is abusive
+    if (preg_match('/^([^@]+)@/', $email, $m)) {
+        $local = $m[1];
+        if (substr_count($local, '.') >= 4) {
+            return 'email_dot_trick';
+        }
+    }
+
+    return null;
+}
+
+/**
+ * Returns true if the given text contains at least one "word" that looks
+ * like a random character string rather than natural language.
+ *
+ * Triggers used:
+ *  - 4+ uppercase letters scattered through a word of length >= 8 (catches
+ *    random mixed-case bot output, allows CamelCase brand names like
+ *    "TaskLensPro" which have at most 3 uppercase letters)
+ *  - Vowel ratio outside natural range in a word of length >= 10 (catches
+ *    pure-lowercase consonant strings)
+ */
+function looksLikeGibberish($text) {
+    $tokens = preg_split('/\s+/u', $text) ?: [];
+    foreach ($tokens as $token) {
+        // Strip everything except letters (incl. German umlauts)
+        $word = preg_replace('/[^a-zA-ZäöüÄÖÜß]/u', '', $token);
+        $len  = mb_strlen($word);
+        if ($len < 8) continue;
+
+        $upper = preg_match_all('/[A-ZÄÖÜ]/u', $word);
+        $lower = preg_match_all('/[a-zäöüß]/u', $word);
+        $total = $upper + $lower;
+        if ($total === 0) continue;
+
+        // Scattered uppercase letters (not just at start, not all-caps acronym)
+        if ($upper >= 4) {
+            $upperPositions = [];
+            for ($i = 0; $i < $len; $i++) {
+                if (preg_match('/[A-ZÄÖÜ]/u', mb_substr($word, $i, 1))) {
+                    $upperPositions[] = $i;
+                }
+            }
+            $upperRatio = $upper / $total;
+            if ($upperRatio < 0.9 && end($upperPositions) > 2) {
+                return true;
+            }
+        }
+
+        // Vowel ratio outside natural range (German averages ~0.38)
+        if ($len >= 10) {
+            $vowels = preg_match_all('/[aeiouäöüAEIOUÄÖÜ]/u', $word);
+            $ratio  = $vowels / $total;
+            if ($ratio < 0.15 || $ratio > 0.75) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+/**
+ * Log blocked submission to api/spam.log for monitoring. Silent on failure.
+ */
+function logSpam($reason, $data) {
+    $line = sprintf(
+        "[%s] %s | ip=%s | name=%s %s | email=%s | company=%s | msg=%s\n",
+        date('Y-m-d H:i:s'),
+        $reason,
+        $_SERVER['REMOTE_ADDR'] ?? '?',
+        substr((string)($data['firstName'] ?? ''), 0, 60),
+        substr((string)($data['lastName']  ?? ''), 0, 60),
+        substr((string)($data['email']     ?? ''), 0, 120),
+        substr((string)($data['company']   ?? ''), 0, 80),
+        substr(str_replace(["\n", "\r"], ' ', (string)($data['message'] ?? '')), 0, 200)
+    );
+    @file_put_contents(__DIR__ . '/spam.log', $line, FILE_APPEND | LOCK_EX);
 }

@@ -9,3 +9,8 @@
     Header set Access-Control-Allow-Methods "POST, OPTIONS"
     Header set Access-Control-Allow-Headers "Content-Type"
 </IfModule>
+
+# Protect log and config files from public access
+<FilesMatch "\.(log|example\.php)$">
+    Require all denied
+</FilesMatch>
