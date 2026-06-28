@@ -1,0 +1,19 @@
+# URL Rewriting für saubere URLs ohne .html
+RewriteEngine On
+RewriteBase /
+
+# Trailing Slash entfernen (außer bei echten Verzeichnissen)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# Wenn die Anfrage keine Dateiendung hat und eine .html-Datei existiert, diese ausliefern
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Optional: Redirect von .html zu sauberer URL (für SEO-Konsistenz)
+# Ausnahme für clients/lions/styleguide (dort soll .html erhalten bleiben)
+RewriteCond %{REQUEST_URI} !^/clients/lions/styleguide/
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [R=301,L]
