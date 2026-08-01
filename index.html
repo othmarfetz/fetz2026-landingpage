@@ -14,6 +14,41 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 
+  <!-- Canonical & Social / SEO -->
+  <link rel="canonical" href="https://fetz.cc/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Othmar Fetz">
+  <meta property="og:locale" content="de_AT">
+  <meta property="og:title" content="Othmar Fetz | Vier Bereiche. Ein Ansprechpartner.">
+  <meta property="og:description" content="Messeauftritt, Markenentwicklung, Web-Projekt oder Fotografie – finden Sie den passenden Bereich für Ihr Anliegen.">
+  <meta property="og:url" content="https://fetz.cc/">
+  <meta property="og:image" content="https://fetz.cc/assets/images/hero/hero-portrait.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Othmar Fetz | Vier Bereiche. Ein Ansprechpartner.">
+  <meta name="twitter:description" content="Messeauftritt, Markenentwicklung, Web-Projekt oder Fotografie – finden Sie den passenden Bereich für Ihr Anliegen.">
+  <meta name="twitter:image" content="https://fetz.cc/assets/images/hero/hero-portrait.jpg">
+
+  <!-- Structured Data: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Othmar Fetz",
+    "url": "https://fetz.cc/",
+    "image": "https://fetz.cc/assets/images/hero/hero-portrait.jpg",
+    "jobTitle": "Stratege, Designer & Entwickler",
+    "description": "Stratege, Designer und Entwickler mit 25 Jahren Erfahrung – bringt Projekte von der Idee bis zum Ergebnis.",
+    "knowsAbout": ["Markenentwicklung", "Webentwicklung", "Grafikdesign", "Messeauftritte", "Fotografie"],
+    "address": { "@type": "PostalAddress", "addressLocality": "Kremsmünster", "addressRegion": "Oberösterreich", "addressCountry": "AT" },
+    "worksFor": { "@type": "Organization", "name": "Werbeagentur FETZ", "url": "https://werbeagentur-fetz.at/" },
+    "sameAs": [
+      "https://www.linkedin.com/in/fetz/",
+      "https://www.instagram.com/othmarfetz/",
+      "https://www.facebook.com/othmar.fetz"
+    ]
+  }
+  </script>
+
   <!-- Google Consent Mode (defaults) -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -95,7 +130,9 @@
     <section class="hero" id="hero">
       <div class="hero__bg">
         <picture>
+          <source media="(max-width: 768px)" type="image/webp" srcset="assets/images/hero/hero-portrait-mobile.webp">
           <source media="(max-width: 768px)" srcset="assets/images/hero/hero-portrait-mobile.jpg">
+          <source type="image/webp" srcset="assets/images/hero/hero-portrait.webp">
           <img src="assets/images/hero/hero-portrait.jpg" alt="Othmar Fetz Portrait">
         </picture>
       </div>
@@ -297,7 +334,7 @@
           <!-- TaskLens -->
           <article class="product-row" data-reveal>
             <div class="product-row__media">
-              <img src="assets/images/products/sujet-tasklens.jpg" alt="TaskLens – Aufgaben rund um Haus und Garten" loading="lazy">
+              <picture><source type="image/webp" srcset="assets/images/products/sujet-tasklens.webp"><img src="assets/images/products/sujet-tasklens.jpg" alt="TaskLens – Aufgaben rund um Haus und Garten" loading="lazy"></picture>
             </div>
             <div class="product-row__content">
               <img src="assets/images/tasklens-logo.svg" alt="TaskLens" class="product-row__logo">
@@ -317,7 +354,7 @@
           <!-- TaskLens Pro -->
           <article class="product-row" data-reveal>
             <div class="product-row__media">
-              <img src="assets/images/products/sujet-tasklenspro.jpg" alt="TaskLens Pro – QR-Aufsteller im Hotelzimmer" loading="lazy">
+              <picture><source type="image/webp" srcset="assets/images/products/sujet-tasklenspro.webp"><img src="assets/images/products/sujet-tasklenspro.jpg" alt="TaskLens Pro – QR-Aufsteller im Hotelzimmer" loading="lazy"></picture>
             </div>
             <div class="product-row__content">
               <span class="product-row__logo-wrap">
@@ -340,7 +377,7 @@
           <!-- SwagFlow -->
           <article class="product-row" data-reveal>
             <div class="product-row__media">
-              <img src="assets/images/products/sujet-swagflow.jpg" alt="SwagFlow – Plattform für Werbeartikelmessen" loading="lazy">
+              <picture><source type="image/webp" srcset="assets/images/products/sujet-swagflow.webp"><img src="assets/images/products/sujet-swagflow.jpg" alt="SwagFlow – Plattform für Werbeartikelmessen" loading="lazy"></picture>
             </div>
             <div class="product-row__content">
               <img src="assets/images/swagflow-logo-white.svg" alt="SwagFlow" class="product-row__logo product-row__logo--swagflow">
@@ -360,7 +397,7 @@
           <!-- FrameStage -->
           <article class="product-row" data-reveal>
             <div class="product-row__media">
-              <img src="assets/images/products/sujet-framestage.jpg" alt="FrameStage – Portfolio für Fotografen" loading="lazy">
+              <picture><source type="image/webp" srcset="assets/images/products/sujet-framestage.webp"><img src="assets/images/products/sujet-framestage.jpg" alt="FrameStage – Portfolio für Fotografen" loading="lazy"></picture>
             </div>
             <div class="product-row__content">
               <img src="assets/images/framestage-logo.svg" alt="FrameStage" class="product-row__logo">
@@ -380,7 +417,7 @@
           <!-- Photo Locations -->
           <article class="product-row" data-reveal>
             <div class="product-row__media">
-              <img src="assets/images/products/sujet-photolocations.jpg" alt="Photo Locations – App für Foto-Spots" loading="lazy">
+              <picture><source type="image/webp" srcset="assets/images/products/sujet-photolocations.webp"><img src="assets/images/products/sujet-photolocations.jpg" alt="Photo Locations – App für Foto-Spots" loading="lazy"></picture>
             </div>
             <div class="product-row__content">
               <img src="assets/images/photolocations-logo.svg" alt="Photo Locations" class="product-row__logo">
@@ -412,7 +449,7 @@
         <div class="projects-list">
           <article class="project" data-reveal>
             <div class="project__image">
-              <img src="assets/images/finanzrechner-projekt.jpg" alt="Finanzrechner.at Redesign">
+              <picture><source type="image/webp" srcset="assets/images/finanzrechner-projekt.webp"><img src="assets/images/finanzrechner-projekt.jpg" alt="Finanzrechner.at Redesign"></picture>
             </div>
             <div class="project__content">
               <p class="project__client">BAWS Steuerberatung</p>
@@ -434,7 +471,7 @@
 
           <article class="project" data-reveal>
             <div class="project__image">
-              <img src="assets/images/fetz/psi-smartcity-uebersicht.jpg" alt="PSI Smart City Kampagne">
+              <picture><source type="image/webp" srcset="assets/images/fetz/psi-smartcity-uebersicht.webp"><img src="assets/images/fetz/psi-smartcity-uebersicht.jpg" alt="PSI Smart City Kampagne"></picture>
             </div>
             <div class="project__content">
               <p class="project__client">PSI Group</p>
@@ -456,7 +493,7 @@
 
           <article class="project" data-reveal>
             <div class="project__image">
-              <img src="assets/images/fetz/sportradl-magazin.jpg" alt="Sportradl Magazin">
+              <picture><source type="image/webp" srcset="assets/images/fetz/sportradl-magazin.webp"><img src="assets/images/fetz/sportradl-magazin.jpg" alt="Sportradl Magazin"></picture>
             </div>
             <div class="project__content">
               <p class="project__client">Sportradl</p>
@@ -478,7 +515,7 @@
 
           <article class="project" data-reveal>
             <div class="project__image">
-              <img src="assets/images/fetz/competence4you-website.jpg" alt="Competence4You Website">
+              <picture><source type="image/webp" srcset="assets/images/fetz/competence4you-website.webp"><img src="assets/images/fetz/competence4you-website.jpg" alt="Competence4You Website"></picture>
             </div>
             <div class="project__content">
               <p class="project__client">Competence4You</p>
@@ -511,7 +548,7 @@
 
         <div class="lions__hero">
           <div class="lions__hero-image" data-reveal>
-            <img src="assets/images/lions/lions-hero.jpg" alt="Othmar Fetz bei Lions International">
+            <picture><source type="image/webp" srcset="assets/images/lions/lions-hero.webp"><img src="assets/images/lions/lions-hero.jpg" alt="Othmar Fetz bei Lions International"></picture>
           </div>
           <div class="lions__hero-content" data-reveal>
             <h3 class="lions__hero-title">Wissen teilen. Menschen verbinden.</h3>
@@ -529,7 +566,7 @@
             <div class="lions-slider__track">
               <article class="lions-card">
                 <div class="lions-card__image">
-                  <img src="assets/images/lions/dg-laufbahn.jpg" alt="Vize Distrikt Governor 2026/27">
+                  <picture><source type="image/webp" srcset="assets/images/lions/dg-laufbahn.webp"><img src="assets/images/lions/dg-laufbahn.jpg" alt="Vize Distrikt Governor 2026/27"></picture>
                 </div>
                 <div class="lions-card__content">
                   <h3 class="lions-card__title">Vize Distrikt Governor 2026/27</h3>
@@ -541,7 +578,7 @@
 
               <article class="lions-card">
                 <div class="lions-card__image">
-                  <img src="assets/images/lions/training.jpg" alt="Führungskräfte-Training">
+                  <picture><source type="image/webp" srcset="assets/images/lions/training.webp"><img src="assets/images/lions/training.jpg" alt="Führungskräfte-Training"></picture>
                 </div>
                 <div class="lions-card__content">
                   <h3 class="lions-card__title">LCIP-Trainer</h3>
@@ -553,7 +590,7 @@
 
               <article class="lions-card">
                 <div class="lions-card__image">
-                  <img src="assets/images/lions/leo-book.jpg" alt="The LEO Book">
+                  <picture><source type="image/webp" srcset="assets/images/lions/leo-book.webp"><img src="assets/images/lions/leo-book.jpg" alt="The LEO Book"></picture>
                 </div>
                 <div class="lions-card__content">
                   <h3 class="lions-card__title">The LEO Book</h3>
@@ -565,7 +602,7 @@
 
               <article class="lions-card">
                 <div class="lions-card__image">
-                  <img src="assets/images/lions/international.jpg" alt="Internationale Bühne">
+                  <picture><source type="image/webp" srcset="assets/images/lions/international.webp"><img src="assets/images/lions/international.jpg" alt="Internationale Bühne"></picture>
                 </div>
                 <div class="lions-card__content">
                   <h3 class="lions-card__title">Internationale Bühne</h3>
