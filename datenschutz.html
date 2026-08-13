@@ -12,6 +12,66 @@
   <link rel="preload" href="assets/fonts/Gotham-Book.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/legal.css">
+  <!-- Logo-Animation. Inline, damit beim ersten Zeichnen nicht kurz das fertige
+       Logo aufblitzt. Erzeugt aus "FETZ Personal Brand/Motion" — dort
+       "npm run sync:websites", nicht hier von Hand ändern. -->
+  <!-- fetz-logo:script:start -->
+<script>try{if(sessionStorage.getItem('fetzLogo'))document.documentElement.className+=' fetz-logo-static';else sessionStorage.setItem('fetzLogo','1')}catch(e){}</script>
+          <!-- fetz-logo:script:end -->
+  <style>
+  /* fetz-logo:style:start */
+/* ---------------------------------------------------------------------------
+   Logo-Animation im Header — erzeugt von Motion/export-web.mjs.
+   Nicht von Hand ändern: Timing in Motion/src/derweg-timing.ts (HEADER),
+   Geometrie in Motion/src/icon-geometry.ts. Neu bauen mit "npm run export:web".
+
+   Läuft einmal pro Sitzung. Das Inline-Script im <head> setzt bei jedem
+   weiteren Seitenaufbau .fetz-logo-static auf <html>, dann steht das Logo
+   sofort — ohne Flackern, weil die Klasse vor dem ersten Zeichnen da ist.
+   --------------------------------------------------------------------------- */
+
+.fetz-logo__bar-top,
+.fetz-logo__bar-bottom {
+  animation-duration: 0.833s;
+  animation-timing-function: linear(0, 0.028, 0.0961, 0.1862, 0.2854, 0.3853, 0.4803, 0.5674, 0.645, 0.7125, 0.7701, 0.8184, 0.8585, 0.8911, 0.9174, 0.9383, 0.9548, 0.9675, 0.9773, 0.9846, 0.99, 0.994, 0.9968, 0.9988, 1.0001, 1.0009, 1.0013, 1.0016, 1.0016, 1.0016, 1.0015, 1.0013, 1.0012, 1.001, 1.0008, 1.0007, 1.0006, 1.0005, 1.0004, 1.0003, 1.0002);
+  animation-fill-mode: both;
+}
+.fetz-logo__bar-top    { animation-name: fetz-logo-in-right; animation-delay: 0s; }
+.fetz-logo__bar-bottom { animation-name: fetz-logo-in-left;  animation-delay: 0.08s; }
+
+.fetz-logo__reveal {
+  stroke-dasharray: 304.6006;
+  animation: fetz-logo-draw 0.72s cubic-bezier(0.35, 0, 0.25, 1) 0.28s both;
+}
+
+/* Buchstaben kommen nach dem Icon, einer nach dem anderen. */
+.fetz-logo__letter {
+  animation: fetz-logo-letter 0.34s cubic-bezier(0.2, 0, 0.2, 1) both;
+  animation-delay: calc(0.72s + var(--i) * 0.055s);
+}
+
+@keyframes fetz-logo-in-right { from { transform: translateX(90px); } to { transform: none; } }
+@keyframes fetz-logo-in-left  { from { transform: translateX(-90px); } to { transform: none; } }
+@keyframes fetz-logo-draw     { from { stroke-dashoffset: 304.6006; } to { stroke-dashoffset: 0; } }
+@keyframes fetz-logo-letter   { from { opacity: 0; transform: translateX(-2px); } to { opacity: 1; transform: none; } }
+
+/* Zweiter Seitenaufbau, oder wer keine Bewegung will: fertiges Logo, sofort. */
+.fetz-logo-static .fetz-logo__bar-top,
+.fetz-logo-static .fetz-logo__bar-bottom,
+.fetz-logo-static .fetz-logo__letter,
+.fetz-logo-static .fetz-logo__reveal { animation: none; }
+.fetz-logo-static .fetz-logo__reveal { stroke-dashoffset: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fetz-logo__bar-top,
+  .fetz-logo__bar-bottom,
+  .fetz-logo__letter,
+  .fetz-logo__reveal { animation: none; }
+  .fetz-logo__reveal { stroke-dashoffset: 0; }
+}
+  /* fetz-logo:style:end */
+  </style>
+
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="canonical" href="https://fetz.cc/datenschutz">
 </head>
@@ -21,15 +81,23 @@
   <header class="header is-scrolled" id="header">
     <div class="header__inner">
       <a href="./" class="header__logo" aria-label="FETZ">
-        <svg viewBox="0 0 175.53 26.31" aria-hidden="true">
-          <polygon fill="currentColor" points="52.52 .14 73.83 .14 74.02 4.47 57.31 4.47 57.31 11.54 71.48 11.54 71.48 15.84 57.31 15.84 57.31 26.3 52.52 26.3 52.52 .14"/>
-          <polygon fill="currentColor" points="85.69 .14 107.18 .14 107.33 4.47 90.44 4.47 90.44 10.6 104.19 10.6 104.19 14.9 90.44 14.9 90.44 21.97 107.93 21.97 107.74 26.3 85.69 26.3 85.69 .14"/>
-          <polygon fill="currentColor" points="127.41 4.55 117.43 4.55 117.62 .14 141.99 .14 142.18 4.55 132.2 4.55 132.2 26.3 127.41 26.3 127.41 4.55"/>
-          <polygon fill="currentColor" points="151.98 21.71 169.21 4.47 152.46 4.47 152.61 .14 175.53 .14 175.53 4.28 157.92 21.97 175.53 21.97 175.53 26.3 151.98 26.3 151.98 21.71"/>
-          <path fill="currentColor" d="M14.21,21.07h16.17c2.56,0,4.64,2.35,4.64,5.24H9.57c0-2.89,2.08-5.24,4.64-5.24"/>
-          <path fill="currentColor" d="M4.64,5.38h16.17c2.56,0,4.64-2.35,4.64-5.24H0c0,2.89,2.08,5.24,4.64,5.24"/>
-          <path fill="#ec4c50" d="M29.5,0c0,2.93-1.19,5.61-3.11,7.53s-4.57,3.11-7.5,3.11h-1.38s-2.01,0-2.01,0c-4.28,0-8.15,1.73-10.96,4.53C1.73,17.99,0,22.03,0,26.31h5.52c0-2.93,1.19-5.75,3.11-7.67s4.57-3.11,7.5-3.11h1.38s2.01,0,2.01,0c4.28,0,8.15-1.73,10.96-4.53,2.81-2.81,4.54-6.71,4.54-10.99h-5.52Z"/>
-        </svg>
+        <!-- fetz-logo:markup:start -->
+<svg class="fetz-logo" viewBox="0 0 175.53 26.31" aria-hidden="true">
+            <polygon class="fetz-logo__letter" style="--i:0" fill="currentColor" points="52.52 .14 73.83 .14 74.02 4.47 57.31 4.47 57.31 11.54 71.48 11.54 71.48 15.84 57.31 15.84 57.31 26.3 52.52 26.3 52.52 .14"/>
+            <polygon class="fetz-logo__letter" style="--i:1" fill="currentColor" points="85.69 .14 107.18 .14 107.33 4.47 90.44 4.47 90.44 10.6 104.19 10.6 104.19 14.9 90.44 14.9 90.44 21.97 107.93 21.97 107.74 26.3 85.69 26.3 85.69 .14"/>
+            <polygon class="fetz-logo__letter" style="--i:2" fill="currentColor" points="127.41 4.55 117.43 4.55 117.62 .14 141.99 .14 142.18 4.55 132.2 4.55 132.2 26.3 127.41 26.3 127.41 4.55"/>
+            <polygon class="fetz-logo__letter" style="--i:3" fill="currentColor" points="151.98 21.71 169.21 4.47 152.46 4.47 152.61 .14 175.53 .14 175.53 4.28 157.92 21.97 175.53 21.97 175.53 26.3 151.98 26.3 151.98 21.71"/>
+            <g transform="scale(0.1459154)">
+              <mask id="fetz-logo-reveal" maskUnits="userSpaceOnUse" x="-40" y="-40" width="320" height="260">
+                <path class="fetz-logo__reveal" d="M221.150 0.000 C221.150 49.457 181.057 89.550 131.600 89.550 L108.400 90.760 C58.943 90.760 18.850 130.853 18.850 180.310" fill="none" stroke="#fff"
+                      stroke-width="60" stroke-linecap="butt" stroke-linejoin="round" stroke-dashoffset="304.6006"/>
+              </mask>
+              <g class="fetz-logo__bar-top"><path d="M31.799 36.8712H142.616C160.16 36.8712 174.415 20.7661 174.415 0.960266H0C0 20.7661 14.2547 36.8712 31.799 36.8712Z" fill="currentColor"/></g>
+              <path d="M202.17 0.000793457C202.17 20.0807 194.015 38.4474 180.857 51.6056C167.698 64.7638 149.537 72.9191 129.457 72.9191H120H106.225C76.8932 72.9191 50.3712 84.7752 31.1136 103.964C11.8561 123.29 0 150.977 0 180.309H37.8298C37.8298 160.229 45.9852 140.903 59.1433 127.745C72.3015 114.587 90.4626 106.431 110.543 106.431H120H133.775C163.107 106.431 189.629 94.5753 208.886 75.3863C228.144 56.1287 240 29.4011 240 0.0693257H202.17V0.000793457Z" fill="#EC4C50" mask="url(#fetz-logo-reveal)"/>
+              <g class="fetz-logo__bar-bottom"><path d="M97.3844 144.398H208.201C225.745 144.398 240 160.503 240 180.309H65.5854C65.5854 160.503 79.8401 144.398 97.3844 144.398Z" fill="currentColor"/></g>
+            </g>
+          </svg>
+          <!-- fetz-logo:markup:end -->
       </a>
 
       <nav class="nav" id="nav">
@@ -185,15 +253,19 @@
       <div class="footer__inner">
         <div class="footer__left">
           <a href="./" class="footer__logo" aria-label="FETZ">
-            <svg viewBox="0 0 175.53 26.31" aria-hidden="true">
-              <polygon fill="currentColor" points="52.52 .14 73.83 .14 74.02 4.47 57.31 4.47 57.31 11.54 71.48 11.54 71.48 15.84 57.31 15.84 57.31 26.3 52.52 26.3 52.52 .14"/>
-              <polygon fill="currentColor" points="85.69 .14 107.18 .14 107.33 4.47 90.44 4.47 90.44 10.6 104.19 10.6 104.19 14.9 90.44 14.9 90.44 21.97 107.93 21.97 107.74 26.3 85.69 26.3 85.69 .14"/>
-              <polygon fill="currentColor" points="127.41 4.55 117.43 4.55 117.62 .14 141.99 .14 142.18 4.55 132.2 4.55 132.2 26.3 127.41 26.3 127.41 4.55"/>
-              <polygon fill="currentColor" points="151.98 21.71 169.21 4.47 152.46 4.47 152.61 .14 175.53 .14 175.53 4.28 157.92 21.97 175.53 21.97 175.53 26.3 151.98 26.3 151.98 21.71"/>
-              <path fill="currentColor" d="M14.21,21.07h16.17c2.56,0,4.64,2.35,4.64,5.24H9.57c0-2.89,2.08-5.24,4.64-5.24"/>
-              <path fill="currentColor" d="M4.64,5.38h16.17c2.56,0,4.64-2.35,4.64-5.24H0c0,2.89,2.08,5.24,4.64,5.24"/>
-              <path fill="#ec4c50" d="M29.5,0c0,2.93-1.19,5.61-3.11,7.53s-4.57,3.11-7.5,3.11h-1.38s-2.01,0-2.01,0c-4.28,0-8.15,1.73-10.96,4.53C1.73,17.99,0,22.03,0,26.31h5.52c0-2.93,1.19-5.75,3.11-7.67s4.57-3.11,7.5-3.11h1.38s2.01,0,2.01,0c4.28,0,8.15-1.73,10.96-4.53,2.81-2.81,4.54-6.71,4.54-10.99h-5.52Z"/>
-            </svg>
+            <!-- fetz-logo:markup-static:start -->
+<svg class="fetz-logo" viewBox="0 0 175.53 26.31" aria-hidden="true">
+            <polygon fill="currentColor" points="52.52 .14 73.83 .14 74.02 4.47 57.31 4.47 57.31 11.54 71.48 11.54 71.48 15.84 57.31 15.84 57.31 26.3 52.52 26.3 52.52 .14"/>
+            <polygon fill="currentColor" points="85.69 .14 107.18 .14 107.33 4.47 90.44 4.47 90.44 10.6 104.19 10.6 104.19 14.9 90.44 14.9 90.44 21.97 107.93 21.97 107.74 26.3 85.69 26.3 85.69 .14"/>
+            <polygon fill="currentColor" points="127.41 4.55 117.43 4.55 117.62 .14 141.99 .14 142.18 4.55 132.2 4.55 132.2 26.3 127.41 26.3 127.41 4.55"/>
+            <polygon fill="currentColor" points="151.98 21.71 169.21 4.47 152.46 4.47 152.61 .14 175.53 .14 175.53 4.28 157.92 21.97 175.53 21.97 175.53 26.3 151.98 26.3 151.98 21.71"/>
+            <g transform="scale(0.1459154)">
+              <path d="M31.799 36.8712H142.616C160.16 36.8712 174.415 20.7661 174.415 0.960266H0C0 20.7661 14.2547 36.8712 31.799 36.8712Z" fill="currentColor"/>
+              <path d="M202.17 0.000793457C202.17 20.0807 194.015 38.4474 180.857 51.6056C167.698 64.7638 149.537 72.9191 129.457 72.9191H120H106.225C76.8932 72.9191 50.3712 84.7752 31.1136 103.964C11.8561 123.29 0 150.977 0 180.309H37.8298C37.8298 160.229 45.9852 140.903 59.1433 127.745C72.3015 114.587 90.4626 106.431 110.543 106.431H120H133.775C163.107 106.431 189.629 94.5753 208.886 75.3863C228.144 56.1287 240 29.4011 240 0.0693257H202.17V0.000793457Z" fill="#EC4C50"/>
+              <path d="M97.3844 144.398H208.201C225.745 144.398 240 160.503 240 180.309H65.5854C65.5854 160.503 79.8401 144.398 97.3844 144.398Z" fill="currentColor"/>
+            </g>
+          </svg>
+          <!-- fetz-logo:markup-static:end -->
           </a>
           <div class="footer__info">
             <p class="footer__line">Werbeagentur FETZ · Keplerstraße 2, 4550 Kremsmünster · <a href="mailto:office@fetz.cc">office@fetz.cc</a> · ATU61165223</p>
