@@ -14,6 +14,37 @@
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
   // ========================================================================
+  // Projekt-Videos
+  //
+  // Stumme Endlosschleife in der Projektkachel. Wer reduzierte Bewegung
+  // eingestellt hat, bekommt das Standbild mit Steuerung. Außerhalb des
+  // Sichtfelds wird pausiert – sonst laufen die Videos im Hintergrund
+  // weiter, während man ganz woanders auf der Seite ist.
+  // ========================================================================
+  document.querySelectorAll('.project__video').forEach(video => {
+    if (prefersReducedMotion) {
+      video.removeAttribute('autoplay');
+      video.removeAttribute('loop');
+      video.setAttribute('controls', '');
+      video.pause();
+      return;
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+
+    new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const p = video.play();
+          if (p && p.catch) p.catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.2 }).observe(video);
+  });
+
+  // ========================================================================
   // Header Scroll Behavior
   // ========================================================================
   const header = document.getElementById('header');

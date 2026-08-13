@@ -1034,6 +1034,15 @@ section {
   overflow: hidden;
 }
 
+/* Bewegtbild in der Projektkachel. Füllt dieselbe Fläche wie ein Foto,
+   damit die Kachelreihe ruhig bleibt. */
+.project__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .project__image-placeholder {
   width: 100%;
   height: 100%;
