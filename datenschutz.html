@@ -50,8 +50,8 @@
   animation-delay: calc(1.6s + var(--i) * 0.075s);
 }
 
-@keyframes fetz-logo-in-right { from { transform: translateX(90px); } to { transform: none; } }
-@keyframes fetz-logo-in-left  { from { transform: translateX(-90px); } to { transform: none; } }
+@keyframes fetz-logo-in-right { from { transform: translateX(260px); } to { transform: none; } }
+@keyframes fetz-logo-in-left  { from { transform: translateX(-260px); } to { transform: none; } }
 @keyframes fetz-logo-draw     { from { stroke-dashoffset: 304.6006; } to { stroke-dashoffset: 0; } }
 @keyframes fetz-logo-letter   { from { opacity: 0; transform: translateX(-2px); } to { opacity: 1; transform: none; } }
 
@@ -92,9 +92,17 @@
                 <path class="fetz-logo__reveal" d="M221.150 0.000 C221.150 49.457 181.057 89.550 131.600 89.550 L108.400 90.760 C58.943 90.760 18.850 130.853 18.850 180.310" fill="none" stroke="#fff"
                       stroke-width="60" stroke-linecap="butt" stroke-linejoin="round" stroke-dashoffset="304.6006"/>
               </mask>
-              <g class="fetz-logo__bar-top"><path d="M31.799 36.8712H142.616C160.16 36.8712 174.415 20.7661 174.415 0.960266H0C0 20.7661 14.2547 36.8712 31.799 36.8712Z" fill="currentColor"/></g>
-              <path d="M202.17 0.000793457C202.17 20.0807 194.015 38.4474 180.857 51.6056C167.698 64.7638 149.537 72.9191 129.457 72.9191H120H106.225C76.8932 72.9191 50.3712 84.7752 31.1136 103.964C11.8561 123.29 0 150.977 0 180.309H37.8298C37.8298 160.229 45.9852 140.903 59.1433 127.745C72.3015 114.587 90.4626 106.431 110.543 106.431H120H133.775C163.107 106.431 189.629 94.5753 208.886 75.3863C228.144 56.1287 240 29.4011 240 0.0693257H202.17V0.000793457Z" fill="#EC4C50" mask="url(#fetz-logo-reveal)"/>
-              <g class="fetz-logo__bar-bottom"><path d="M97.3844 144.398H208.201C225.745 144.398 240 160.503 240 180.309H65.5854C65.5854 160.503 79.8401 144.398 97.3844 144.398Z" fill="currentColor"/></g>
+              <!-- Begrenzt das Icon auf seine eigene Box: die Balken sind vor dem
+                   Einfahren unsichtbar und laufen dem Schriftzug nicht ins Gehege.
+                   Oben und unten etwas Luft gegen angeschnittene Kanten. -->
+              <clipPath id="fetz-logo-box">
+                <rect x="0" y="-3" width="240" height="186.31"/>
+              </clipPath>
+              <g clip-path="url(#fetz-logo-box)">
+                <g class="fetz-logo__bar-top"><path d="M31.799 36.8712H142.616C160.16 36.8712 174.415 20.7661 174.415 0.960266H0C0 20.7661 14.2547 36.8712 31.799 36.8712Z" fill="currentColor"/></g>
+                <path d="M202.17 0.000793457C202.17 20.0807 194.015 38.4474 180.857 51.6056C167.698 64.7638 149.537 72.9191 129.457 72.9191H120H106.225C76.8932 72.9191 50.3712 84.7752 31.1136 103.964C11.8561 123.29 0 150.977 0 180.309H37.8298C37.8298 160.229 45.9852 140.903 59.1433 127.745C72.3015 114.587 90.4626 106.431 110.543 106.431H120H133.775C163.107 106.431 189.629 94.5753 208.886 75.3863C228.144 56.1287 240 29.4011 240 0.0693257H202.17V0.000793457Z" fill="#EC4C50" mask="url(#fetz-logo-reveal)"/>
+                <g class="fetz-logo__bar-bottom"><path d="M97.3844 144.398H208.201C225.745 144.398 240 160.503 240 180.309H65.5854C65.5854 160.503 79.8401 144.398 97.3844 144.398Z" fill="currentColor"/></g>
+              </g>
             </g>
           </svg>
           <!-- fetz-logo:markup:end -->
