@@ -1034,8 +1034,17 @@ section {
   overflow: hidden;
 }
 
-/* Bewegtbild in der Projektkachel. Füllt dieselbe Fläche wie ein Foto,
-   damit die Kachelreihe ruhig bleibt. */
+/* Bewegtbild in der Projektkachel.
+
+   Die Kachel bekommt das Seitenverhältnis des Videos, nicht die 3:2 der
+   Fotokacheln. Grund: bei 3:2 schneidet `cover` rund 21 % der Breite weg,
+   und ein Film ist kein Foto — was dort wegfällt, fehlt in der Bewegung
+   und im Schnitt. Jede Projektzeile steht für sich (Bild links, Text
+   rechts), eine flachere Kachel bricht also kein Raster. */
+.project__image--video {
+  aspect-ratio: 1920 / 1004;
+}
+
 .project__video {
   width: 100%;
   height: 100%;
@@ -2059,6 +2068,13 @@ a.contact__value:hover {
   .project__image {
     height: 180px;
     aspect-ratio: unset;
+  }
+
+  /* Das Video behält auch am Handy sein Format – auf 180 px feste Höhe
+     gezwungen bliebe wieder nur ein Ausschnitt übrig. */
+  .project__image--video {
+    height: auto;
+    aspect-ratio: 1920 / 1004;
   }
 
   .project__image img {
