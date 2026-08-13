@@ -786,6 +786,14 @@
     const form = contactModal.querySelector('.contact-form');
     const submitBtn = form?.querySelector('.contact-form__submit');
 
+    // Anti-spam: Set timestamp when form is available
+    if (form) {
+      const timestampField = form.querySelector('[name="_timestamp"]');
+      if (timestampField) {
+        timestampField.value = Date.now();
+      }
+    }
+
     // Open modal triggers
     document.querySelectorAll('[data-contact-modal]').forEach(trigger => {
       trigger.addEventListener('click', (e) => {
@@ -851,7 +859,10 @@
           company: form.querySelector('[name="company"]')?.value.trim() || '',
           email: form.querySelector('[name="email"]')?.value.trim() || '',
           message: form.querySelector('[name="message"]')?.value.trim() || '',
-          privacy: form.querySelector('[name="privacy"]')?.checked || false
+          privacy: form.querySelector('[name="privacy"]')?.checked || false,
+          // Anti-spam fields
+          website: form.querySelector('[name="website"]')?.value || '',
+          _timestamp: form.querySelector('[name="_timestamp"]')?.value || ''
         };
 
         // Validation
