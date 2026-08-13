@@ -32,22 +32,22 @@
 
 .fetz-logo__bar-top,
 .fetz-logo__bar-bottom {
-  animation-duration: 0.833s;
-  animation-timing-function: linear(0, 0.028, 0.0961, 0.1862, 0.2854, 0.3853, 0.4803, 0.5674, 0.645, 0.7125, 0.7701, 0.8184, 0.8585, 0.8911, 0.9174, 0.9383, 0.9548, 0.9675, 0.9773, 0.9846, 0.99, 0.994, 0.9968, 0.9988, 1.0001, 1.0009, 1.0013, 1.0016, 1.0016, 1.0016, 1.0015, 1.0013, 1.0012, 1.001, 1.0008, 1.0007, 1.0006, 1.0005, 1.0004, 1.0003, 1.0002);
+  animation-duration: 1.067s;
+  animation-timing-function: linear(0, 0.024, 0.0828, 0.1609, 0.2479, 0.3365, 0.4222, 0.5022, 0.5751, 0.6403, 0.6975, 0.7473, 0.7901, 0.8265, 0.8574, 0.8833, 0.9048, 0.9228, 0.9376, 0.9497, 0.9596, 0.9677, 0.9743, 0.9796, 0.9839, 0.9873, 0.99, 0.9922, 0.9939, 0.9953, 0.9964, 0.9972, 0.9979, 0.9984, 0.9988, 0.9991, 0.9993, 0.9995, 0.9996, 0.9997, 0.9998);
   animation-fill-mode: both;
 }
-.fetz-logo__bar-top    { animation-name: fetz-logo-in-right; animation-delay: 0s; }
-.fetz-logo__bar-bottom { animation-name: fetz-logo-in-left;  animation-delay: 0.08s; }
+.fetz-logo__bar-top    { animation-name: fetz-logo-in-right; animation-delay: 0.45s; }
+.fetz-logo__bar-bottom { animation-name: fetz-logo-in-left;  animation-delay: 0.59s; }
 
 .fetz-logo__reveal {
   stroke-dasharray: 304.6006;
-  animation: fetz-logo-draw 0.72s cubic-bezier(0.35, 0, 0.25, 1) 0.28s both;
+  animation: fetz-logo-draw 1.05s cubic-bezier(0.35, 0, 0.25, 1) 0.87s both;
 }
 
 /* Buchstaben kommen nach dem Icon, einer nach dem anderen. */
 .fetz-logo__letter {
-  animation: fetz-logo-letter 0.34s cubic-bezier(0.2, 0, 0.2, 1) both;
-  animation-delay: calc(0.72s + var(--i) * 0.055s);
+  animation: fetz-logo-letter 0.42s cubic-bezier(0.2, 0, 0.2, 1) both;
+  animation-delay: calc(1.6s + var(--i) * 0.075s);
 }
 
 @keyframes fetz-logo-in-right { from { transform: translateX(90px); } to { transform: none; } }
