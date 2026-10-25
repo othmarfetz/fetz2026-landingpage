@@ -2,6 +2,13 @@
 RewriteEngine On
 RewriteBase /
 
+# Nur eine Adresse: https://fetz.cc (ohne www). Je ein Sprung, keine Kette.
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://fetz.cc%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://fetz.cc%{REQUEST_URI} [R=301,L]
+
 # Trailing Slash entfernen (außer bei echten Verzeichnissen)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)/$ /$1 [R=301,L]
